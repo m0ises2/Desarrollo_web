@@ -1,4 +1,5 @@
 <?php
+///Controlador que carga la vista principal dependiendo de que tipo de usuario sea. Administrador o Vendedo común.
 
 	class Principal extends CI_Controller
 	{
@@ -13,10 +14,15 @@
 
 				if( strcmp($dato, "administrador") == 0 )
 				{	
-					echo "Vista todavia no disponible";
+					$this->session->unset_userdata('user_id');
+					echo "Ud. es un usuario administrador y, por ende, su vista todavia no esta disponible";
 				}else
 				{
-					$this->load->view("vista_principal");
+					$this->load->model('medicamento_model');
+					$data = $this->medicamento_model->obt_medicamentos();
+					$data = array('medicamento' => $data );
+					
+					$this->load->view("vista_principal",$data);
 				}
 			}else
 			{

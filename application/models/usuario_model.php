@@ -1,4 +1,5 @@
 <?php
+//Modelo encargado de hacer las consultas de datos de los usuarios, para validar el inision de sesión.
 
 class Usuario_model extends CI_Model
 {
@@ -12,6 +13,7 @@ class Usuario_model extends CI_Model
 	{
 		return ($this->db->query("SELECT privilegios FROM usuario WHERE id = ".$data)->row()->privilegios);
 	}
+	
 }
 
 ?>

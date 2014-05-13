@@ -1,4 +1,5 @@
 <?php
+//Controlador encargado de iniciar la sesión en el sistema.
 
 class Inicio_sesion extends CI_Controller
 {
@@ -6,7 +7,15 @@ class Inicio_sesion extends CI_Controller
 
 	function index()
 	{
-		$this->load->view("inicio");		
+
+		if( $this->session->userdata('user_id') ) 
+		{
+			redirect('/index.php/principal','refresh');		
+		}
+
+		$this->load->view("inicio");
+
+		
 	}
 
 	function establecer_sesion()
@@ -40,6 +49,16 @@ class Inicio_sesion extends CI_Controller
 			);
 			$this->load->view('inicio',$error);
 		}
+	}
+
+	function cerrar_sesion()
+	{
+		if( $this->session->userdata('user_id') )
+		{
+			$this->session->unset_userdata('user_id');			
+		}
+
+		redirect('/index.php/inicio_sesion','refresh');
 	}
 	
 }

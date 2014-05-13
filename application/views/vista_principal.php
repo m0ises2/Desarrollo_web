@@ -56,7 +56,7 @@
 									<ul class="left">
 										<li class="divider" style="width:15px;"></li>
 										<li class="has-dropdown">
-											<a href="" style="color:white; background-color:#12853A;">Opciones</a>
+											<a style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
 												<li><a href="">Busqueda avanzada</a></li>
 												<li><label>Para los seleccionados</label></li>
@@ -103,207 +103,30 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Atamel</td>
-										<td>Pficer</td>
-										<td>tabletas</td>
-										<td>10</td>
-										<td>100</td>
-										<td>6,5 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Brugesic</td>
-										<td>Elmor</td>
-										<td>tabletas</td>
-										<td>24</td>
-										<td>56</td>
-										<td>20 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Lucentis</td>
-										<td>Novatis</td>
-										<td>solución inyectable</td>
-										<td>5</td>
-										<td>100</td>
-										<td>200 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Cataflam</td>
-										<td>Novatis</td>
-										<td>tabletas</td>
-										<td>20</td>
-										<td>300</td>
-										<td>200 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Ritalin</td>
-										<td>Novatis</td>
-										<td>comprimidos</td>
-										<td>5</td>
-										<td>100</td>
-										<td>215 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Tasigna</td>
-										<td>Novatis</td>
-										<td>tabletas</td>
-										<td>5</td>
-										<td>50</td>
-										<td>355 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Lamisil</td>
-										<td>Novatis</td>
-										<td>crema</td>
-										<td>10</td>
-										<td>100</td>
-										<td>70 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Voltarén</td>
-										<td>Novatis</td>
-										<td>comprimidos</td>
-										<td>20</td>
-										<td>300</td>
-										<td>50 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Femara</td>
-										<td>Novatis</td>
-										<td>comprimidos</td>
-										<td>5</td>
-										<td>80</td>
-										<td>225 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Tegretol</td>
-										<td>Novatis</td>
-										<td>comprimidos</td>
-										<td>5</td>
-										<td>50</td>
-										<td>150 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Aclasta</td>
-										<td>Novatis</td>
-										<td>solución inyectable</td>
-										<td>5</td>
-										<td>50</td>
-										<td>299 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Elidel</td>
-										<td>Novatis</td>
-										<td>crema</td>
-										<td>5</td>
-										<td>100</td>
-										<td>99 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Leponex</td>
-										<td>Novatis</td>
-										<td>comprimidos</td>
-										<td>5</td>
-										<td>30</td>
-										<td>198 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Sintrom</td>
-										<td>Novatis</td>
-										<td>comprimidos</td>
-										<td>10</td>
-										<td>60</td>
-										<td>109 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Xolair</td>
-										<td>Novatis</td>
-										<td>vacuna</td>
-										<td>10</td>
-										<td>100</td>
-										<td>80 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Nexium</td>
-										<td>AstraZeneca</td>
-										<td>granulado</td>
-										<td>5</td>
-										<td>60</td>
-										<td>79 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Provisacor</td>
-										<td>AstraZeneca</td>
-										<td>comprimidos</td>
-										<td>10</td>
-										<td>100</td>
-										<td>100 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Zinforo</td>
-										<td>AstraZeneca</td>
-										<td>polvo</td>
-										<td>5</td>
-										<td>50</td>
-										<td>198 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Accolate</td>
-										<td>AstraZeneca</td>
-										<td>tabletas</td>
-										<td>5</td>
-										<td>100</td>
-										<td>399 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Diprivan</td>
-										<td>AstraZeneca</td>
-										<td>solución inyectable</td>
-										<td>10</td>
-										<td>200</td>
-										<td>348 Bs</td>
-										<td>Ver lotes</td>
-									</tr>
-									
+
+									<?php
+										foreach ($medicamento->result() as $fila) {
+											echo "<form method='POST' action=>";
+											echo "<tr>
+													<td><input id='checkbox1' name='checkbox1' type='checkbox' value=''></td>
+													<td>". $fila->nombre ."</td>
+													<td>". $fila->laboratorio ."</td>
+													<td>". $fila->presentacion ."</td>
+													<td>". $fila->stock_min ."</td>
+													<td>". $fila->stock_max ."</td>
+													<td>". $fila->precio ."</td>
+													<td>
+														<div style='line-height:550%;'>
+															<button style='background-color:#12853A' type='summit' class='button small' tittle='Ver Lote' src='' height='35' width='35'>
+																Ver Lotes
+															</button>
+														</div>
+													</td>
+													<td> <input name = 'codigo' type='hidden' value=" .$fila->codigo. "> </td>
+												</tr>";
+											echo "</form>";
+										}
+									?>
 								</tbody>
 							</table>
 						</div>
@@ -324,6 +147,8 @@
 								<li class="arrow unavailable"><a href="">&raquo;</a></li>
 							</ul>
 							
+							<a href = "<?php echo site_url().'/';?>index.php/inicio_sesion/cerrar_sesion" style="color:#12853A;">Cerrar Sesión</a>
+
 							<br>
 							<br>
 							<br>
