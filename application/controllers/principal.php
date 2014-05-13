@@ -22,7 +22,7 @@
 					$data = $this->medicamento_model->obt_medicamentos();
 					$data = array('medicamento' => $data );
 					
-					$this->load->view("vista_principal",$data);
+					$this->load->view("Ventas/vista_principal",$data);
 				}
 			}else
 			{

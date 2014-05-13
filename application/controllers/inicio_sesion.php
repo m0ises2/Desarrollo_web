@@ -13,7 +13,7 @@ class Inicio_sesion extends CI_Controller
 			redirect('/index.php/principal','refresh');		
 		}
 
-		$this->load->view("inicio");
+		$this->load->view("Ventas/inicio");
 
 		
 	}
@@ -47,7 +47,7 @@ class Inicio_sesion extends CI_Controller
 			$error = array(
 				'error' => TRUE
 			);
-			$this->load->view('inicio',$error);
+			$this->load->view('Ventas/inicio',$error);
 		}
 	}
 
@@ -55,7 +55,7 @@ class Inicio_sesion extends CI_Controller
 	{
 		if( $this->session->userdata('user_id') )
 		{
-			$this->session->unset_userdata('user_id');			
+			$this->session->sess_destroy();			
 		}
 
 		redirect('/index.php/inicio_sesion','refresh');
