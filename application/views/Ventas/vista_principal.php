@@ -42,11 +42,11 @@
 									<ul class="right">
 										<li class="has-form">
 											<div class="row collapse">
-												<div class="large-8 small-9 columns">
+												<div class="large-7 small-9 columns">
 													<input type="text" placeholder="Inserte su texto" style="height:31px;">
 												</div>
-												<div class="large-4 small-3 columns">
-													<a href="#" class="round alert button expand" style="color:white;">Buscar</a>
+												<div class="large-5 small-3 columns">
+													<a href="#" class="button radius round" style="color:white; background-color:#12853A;">Buscar</a>
 												</div>
 											</div>
 										</li>
@@ -58,9 +58,8 @@
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><a href="">Busqueda avanzada</a></li>
 												<li><label>Para los seleccionados</label></li>
-												<li><a href="">Dar de baja</a></li>
+												<li><a href="">Ver lotes</a></li>
 												<li><a href="">Traspaso</a></li>
 											</ul>
 										</li>
@@ -89,24 +88,27 @@
 					<!--INICIO DE LA TABLA-->
 					<div class="row">
 						<div class="large-12 medium-12 small-12 columns" align="center">
-							<table>
+							<table align="center">
 								<thead>
 									<tr>
-										<th>check</th>
-										<th>Nombre</th>
-										<th>Laboratorio</th>
-										<th>Presentacion</th>
-										<th>stock_min</th>
-										<th>stock_max</th>
-										<th>Precio</th>
-										<th>Operaciones</th>
+										<th width="20%"></th>
+										<th width="20%">Nombre</th>
+										<th width="20%">Laboratorio</th>
+										<th width="20%">Presentación</th>
+										<th width="20%">Stock minimo</th>
+										<th width="20%">Stock máximo</th>
+										<th width="20%">Precio</th>
+										<th width="20%">Cantidad Disponible</th>
+										<th width="20%">Operaciones</th>
 									</tr>
 								</thead>
 								<tbody>
 
 									<?php
 										foreach ($medicamento->result() as $fila) {
-											echo "<form method='POST' action=>";
+											echo "<form method='POST' action=";
+											echo site_url().'/index.php/medicamento/mostrar';
+											echo ">";
 											echo "<tr>
 													<td><input id='checkbox1' name='checkbox1' type='checkbox' value=''></td>
 													<td>". $fila->nombre ."</td>
@@ -115,14 +117,15 @@
 													<td>". $fila->stock_min ."</td>
 													<td>". $fila->stock_max ."</td>
 													<td>". $fila->precio ."</td>
+													<td>". $fila->cantidad ."</td>
 													<td>
 														<div style='line-height:550%;'>
-															<button style='background-color:#12853A' type='summit' class='button small' tittle='Ver Lote' src='' height='35' width='35'>
-																Ver Lotes
+															<button style='background-color:#12853A' type='summit' class='button tiny' tittle='Eliminar'>
+																Eliminar
 															</button>
 														</div>
 													</td>
-													<td> <input name = 'codigo' type='hidden' value=" .$fila->codigo. "> </td>
+													<td> <input name = 'codigo' type='hidden' value=".$fila->codigo."> </td>
 												</tr>";
 											echo "</form>";
 										}
