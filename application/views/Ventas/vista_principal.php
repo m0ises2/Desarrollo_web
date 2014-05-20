@@ -53,14 +53,12 @@
 									</ul>
 									
 									<!-- Left Nav Section -->
-									<ul class="left">
-										<li class="divider" style="width:15px;"></li>
+									<ul class="left" style="margin-left:15px">
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><label>Para los seleccionados</label></li>
 												<li><a href="">Ver lotes</a></li>
-												<li><a href="">Traspaso</a></li>
+												<li><a href="traspaso">Traspaso</a></li>
 											</ul>
 										</li>
 									</ul>
@@ -91,7 +89,6 @@
 							<table align="center">
 								<thead>
 									<tr>
-										<th width="20%"></th>
 										<th width="20%">Nombre</th>
 										<th width="20%">Laboratorio</th>
 										<th width="20%">Presentación</th>
@@ -99,7 +96,7 @@
 										<th width="20%">Stock máximo</th>
 										<th width="20%">Precio</th>
 										<th width="20%">Cantidad Disponible</th>
-										<th width="20%">Operaciones</th>
+										<th width="10%" colspan="2">Operaciones</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -110,7 +107,6 @@
 											echo site_url().'/index.php/medicamento/mostrar';
 											echo ">";
 											echo "<tr>
-													<td><input id='checkbox1' name='checkbox1' type='checkbox' value=''></td>
 													<td>". $fila->nombre ."</td>
 													<td>". $fila->laboratorio ."</td>
 													<td>". $fila->presentacion ."</td>
@@ -120,12 +116,13 @@
 													<td>". $fila->cantidad ."</td>
 													<td>
 														<div style='line-height:550%;'>
+															<input name = 'codigo' type='hidden' value=".$fila->codigo.">
 															<button style='background-color:#12853A' type='summit' class='button tiny' tittle='Eliminar'>
 																Eliminar
 															</button>
 														</div>
 													</td>
-													<td> <input name = 'codigo' type='hidden' value=".$fila->codigo."> </td>
+													<td>  </td>
 												</tr>";
 											echo "</form>";
 										}

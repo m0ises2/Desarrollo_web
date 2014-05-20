@@ -33,10 +33,17 @@
 			{
 				$this->load->model('medicamento_model');
 				
-				echo $_POST["cant1"]. " ";
-				echo $_POST["codigo"]; 
-				echo " " . $_POST["causa1"];
-				echo " " . $_POST["cod_lote1"];
+				if( $this->medicamento_model->comprobar_cantidad($_POST["codigo"], $_POST["cant1"]))
+				{
+					$this->medicamento_model->borrar($_POST["codigo"], $_POST["cant1"]);
+
+				redirect('/');
+
+				}else
+				{
+					$this->mostrar();
+				}
+
 			}else
 			{
 				redirect('/');

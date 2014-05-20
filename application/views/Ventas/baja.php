@@ -58,7 +58,6 @@
 										<li class="has-dropdown">
 											<a class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><label>Para los seleccionados</label></li>
 												<li><a href='#'>Dar de baja</a></li>
 												<li><a href='#'>Traspaso</a></li>
 											</ul>
@@ -88,7 +87,7 @@
 											<label>Presentación: <?php echo $fila->presentacion;?></label>
 											<br>
 											<label>Cantidad</label>
-											<input type="text" name="cant1" required pattern="[1-9]+" value="1" required />
+											<input type="text" name="cant1" pattern="[0-9]+" value="1" required />
 											<label>Causa</label>
 											<select name="causa1" required />
 												<option value="Robo">Robo</option>
