@@ -52,6 +52,7 @@
 										<th width="20%">Stock máximo</th>
 										<th width="20%">Precio</th>
 										<th width="20%">Cantidad Disponible</th>
+										<th width="20%">Cant. Dosis Disponibles</th>
 										<th width="20%">Seleccionar</th>
 									</tr>
 								</thead>
@@ -69,8 +70,17 @@
 													<td>". $fila->stock_min ."</td>
 													<td>". $fila->stock_max ."</td>
 													<td>". $fila->precio ."</td>
-													<td>". $fila->cantidad ."</td>
-													<td>
+													<td>". $fila->cantidad ."</td>";
+
+													if( isset($unidosis[$fila->codigo]) )
+													{
+														echo "<td>".$unidosis[$fila->codigo]."</td>";
+													}else
+													{
+														echo "<td><b>N/A</b></td>";
+													}
+
+											echo "<td>
 														<div style='margin-left:35px;'>
 															<input name = 'seleccionados[]' type='checkbox' value=".$fila->codigo.">
 														</div>
@@ -96,6 +106,7 @@
 							{
 								echo '<div data-alert class="alert-box warning radius" style="width:250px; margin: 0 auto 20px auto;">Cantidad no disponible.</div>';
 							}
+
 						?>	
 					
 					<br>
@@ -124,7 +135,7 @@
 				<div class="row">
 						<div class="large-12 columns">
 							<?php 
-								if( isset($error) )
+								if( isset($error) || isset($error2))
 								{
 									echo "<a href='../principal' style='color:#12853A;''>Volver</a>";
 								}else

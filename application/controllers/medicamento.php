@@ -29,21 +29,33 @@
 
 		function eliminar()
 		{
+			$this->load->model('medicamento_model');
+
 			if( $_POST )
 			{
-				$this->load->model('medicamento_model');
-				
-				if( $this->medicamento_model->comprobar_cantidad($_POST["codigo"], $_POST["cant1"]))
+				if( isset($_POST["unidosis"]) )
 				{
-					$this->medicamento_model->borrar($_POST["codigo"], $_POST["cant1"]);
-
-				redirect('/');
-
+					if( $this->medicamento_model->comprobar_cantidad_dosis($_POST["codigo"], $_POST["cant1"]) )
+					{
+						$this->medicamento_model->borrar_unidosis($_POST["codigo"], $_POST["cant1"]);
+						redirect("/");
+					}else
+					{
+						$this->mostrar();
+					}
+				}
+								
+				if( $_POST["cant1"] == 0 && !$this->medicamento_model->existe_unidosis($_POST["codigo"]))
+				{
+					$this->medicamento_model->borrar_definitivo($_POST["codigo"]);
 				}else
 				{
-					$this->mostrar();
+					if( $this->medicamento_model->comprobar_cantidad($_POST["codigo"], $_POST["cant1"]))
+					{
+						$this->medicamento_model->borrar($_POST["codigo"], $_POST["cant1"]);
+					}
+					redirect('/');
 				}
-
 			}else
 			{
 				redirect('/');

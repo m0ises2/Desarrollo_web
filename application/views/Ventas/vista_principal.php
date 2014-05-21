@@ -57,7 +57,7 @@
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><a href="unidosis">Ver lotes</a></li>
+												<li><a href="#">---</a></li>
 												<li><a href="traspaso">Traspaso</a></li>
 											</ul>
 										</li>
@@ -113,10 +113,25 @@
 													<td>". $fila->presentacion ."</td>
 													<td>". $fila->stock_min ."</td>
 													<td>". $fila->stock_max ."</td>
-													<td>". $fila->precio ."</td>
-													<td>". $fila->cantidad ."</td>
-													<td>23</td>
-													<td>
+													<td>". $fila->precio ."</td>";
+															if($fila->cantidad <= $fila->stock_min)
+															{
+																echo "<td style='color:red'><b>".$fila->cantidad."</b></td>";
+															}else
+															{
+																echo "<td>".$fila->cantidad."</td>";
+															}
+											echo "</td>";													
+
+													if( isset($unidosis[$fila->codigo]) )
+													{
+														echo "<td>".$unidosis[$fila->codigo]."</td>";
+													}else
+													{
+														echo "<td><b>N/A</b></td>";
+													}
+
+											echo "<td>
 														<div style='line-height:550%;'>
 															<input name = 'codigo' type='hidden' value=".$fila->codigo.">
 															<button style='background-color:#12853A' type='summit' class='button tiny' tittle='Eliminar'>

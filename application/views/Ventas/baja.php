@@ -58,7 +58,7 @@
 										<li class="has-dropdown">
 											<a class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><a href='#'>Dar de baja</a></li>
+												<li><a href='#'>---</a></li>
 												<li><a href='#'>Traspaso</a></li>
 											</ul>
 										</li>
@@ -87,7 +87,10 @@
 											<label>Presentación: <?php echo $fila->presentacion;?></label>
 											<br>
 											<label>Cantidad</label>
-											<input type="text" name="cant1" pattern="[0-9]+" value="1" required />
+											<?php
+												echo "<input type='text' name='cant1' pattern='[0-9]+'' value='1' required />";											
+											?>
+											
 											<label>Causa</label>
 											<select name="causa1" required />
 												<option value="Robo">Robo</option>
@@ -108,6 +111,10 @@
 
 											</select>
 											<input name = 'codigo' type='hidden' value="<?php echo $fila->codigo;?>">
+										</div>
+										<div class="large-12 medium-12 small-12 columns" align="left" >
+											<span style="margin-right:10px;">Unidosis</span>
+											<input name = 'unidosis' type='checkbox' value='1'>
 										</div>
 									</div>
 								</fieldset>

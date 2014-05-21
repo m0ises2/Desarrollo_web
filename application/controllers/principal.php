@@ -19,8 +19,17 @@
 				{
 					$this->load->model('medicamento_model');
 					$data = $this->medicamento_model->obt_medicamentos();
+					$data2 = $this->medicamento_model->obt_unidosis();
 					
-					$data = array('medicamento' => $data );
+					$uni = array();
+					
+					foreach( $data2->result() as $fila2 )
+					{
+						$uni[$fila2->codigo_med] = $fila2->cantidad_dosis;
+					}
+					
+					$data = array('medicamento' => $data,
+									'unidosis' => $uni);
 					
 					$this->load->view("Ventas/vista_principal",$data);
 				}

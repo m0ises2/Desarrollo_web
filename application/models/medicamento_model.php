@@ -44,15 +44,18 @@ class Medicamento_model extends CI_Model
 		foreach ($query->result() as $fila) {
 			$cantidad = $fila->cantidad;
 		}
+	
+		$cantidad = $cantidad - $cant;
+		$this->db->query("UPDATE medicamento SET cantidad = ".$cantidad." WHERE codigo = ".$codigo);
+		
 
-		if( $cant == $cantidad )
-		{
-			$this->db->query("DELETE FROM medicamento WHERE codigo=".$codigo);
-		}else
-		{
-			$cantidad = $cantidad - $cant;
-			$this->db->query("UPDATE medicamento SET cantidad = ".$cantidad." WHERE codigo = ".$codigo);
-		}
+	}
+
+	function borrar_definitivo( $codigo )
+	{
+		$query = $this->db->query("SELECT cantidad FROM medicamento WHERE codigo=".$codigo);
+
+		$this->db->query("DELETE FROM medicamento WHERE codigo=".$codigo);		
 
 	}
 
@@ -107,6 +110,23 @@ class Medicamento_model extends CI_Model
 		foreach( $query->result() as $fila)
 		{
 			$dato = $fila->cantidad;
+		}
+
+		return $cant <= $dato;
+	}
+
+	function comprobar_cantidad_dosis( $codigo , $cant)
+	{
+		$query = $this->db->query("SELECT cantidad_dosis FROM unidosis WHERE codigo_med =".$codigo);
+
+		foreach( $query->result() as $fila)
+		{
+			$dato = $fila->cantidad_dosis;
+		}
+
+		if( $query->num_rows() == 0 )
+		{
+			return FALSE;
 		}
 
 		return $cant <= $dato;
