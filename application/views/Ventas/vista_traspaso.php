@@ -90,7 +90,11 @@
 						<?php
 							if( isset($error) )
 							{
-								echo '<div data-alert class="alert-box warning radius" style="width:250px; margin: 0 auto 20px auto;">Unidad destino invalida.</div>';
+								echo '<div data-alert class="alert-box warning radius" style="width:250px; margin: 0 auto 20px auto;">Unidad destino inválida.</div>';
+							}
+							if( isset($error2) )
+							{
+								echo '<div data-alert class="alert-box warning radius" style="width:250px; margin: 0 auto 20px auto;">Cantidad no disponible.</div>';
 							}
 						?>	
 					
@@ -114,10 +118,21 @@
 									<textarea name="obs1" style="height:110px; resize:none;"></textarea>
 							</div>
 					</div>
-					<!--FIN DE LA TABLA-->				
+					<!--FIN DE LA TABLA-->
+					
 				</div>
 				<div class="row">
 						<div class="large-12 columns">
+							<?php 
+								if( isset($error) )
+								{
+									echo "<a href='../principal' style='color:#12853A;''>Volver</a>";
+								}else
+								{
+									echo "<a href='principal' style='color:#12853A;''>Volver</a>";
+								}
+								
+							?>
 							<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Procesar">
 							<?php echo "</form>"; ?>
 						</div>

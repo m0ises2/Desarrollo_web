@@ -14,12 +14,12 @@
 
 				if( strcmp($dato, "administrador") == 0 )
 				{	
-					$this->session->unset_userdata('user_id');
-					echo "Ud. es un usuario administrador y, por ende, su vista todavia no esta disponible";
+					$this->load->view("Administrador/vista_principal");
 				}else
 				{
 					$this->load->model('medicamento_model');
 					$data = $this->medicamento_model->obt_medicamentos();
+					
 					$data = array('medicamento' => $data );
 					
 					$this->load->view("Ventas/vista_principal",$data);

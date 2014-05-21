@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo site_url().'/';?>assets/css/foundation.css" />
+		<link rel="stylesheet" href="<?php echo site_url().'/';?>assets/css/foundation.css"/>
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
@@ -42,23 +42,31 @@
 									<ul class="right">
 										<li class="has-form">
 											<div class="row collapse">
-												<div class="large-7 small-9 columns">
+												<div class="large-8 small-9 columns">
 													<input type="text" placeholder="Inserte su texto" style="height:31px;">
 												</div>
-												<div class="large-5 small-3 columns">
-													<a href="#" class="button radius round" style="color:white; background-color:#12853A;">Buscar</a>
+												<div class="large-4 small-3 columns">
+													<a href="#" class="round alert button expand" style="color:white;">Buscar</a>
 												</div>
 											</div>
 										</li>
 									</ul>
 									
 									<!-- Left Nav Section -->
-									<ul class="left" style="margin-left:15px">
+									<ul class="left">
+										<li class="divider" style="width:15px;"></li>
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><a href="unidosis">Ver lotes</a></li>
-												<li><a href="traspaso">Traspaso</a></li>
+												<li><a href="">Búsqueda avanzada</a></li>
+												<li><a href="">Nuevo medicamento</a></li>
+												<li><label>Para los seleccionados</label></li>
+												<li><a href="">Nuevo lote</a></li>
+												<li><a href="">Modificar</a></li>
+												<li><a href="">Dar de baja</a></li>
+												<li><a href="">Traspaso</a></li>
+												<li><label>Sesión</label></li>
+												<li><a href="">Cerrar sesión</a></li>
 											</ul>
 										</li>
 									</ul>
@@ -86,49 +94,80 @@
 					<!--INICIO DE LA TABLA-->
 					<div class="row">
 						<div class="large-12 medium-12 small-12 columns" align="center">
-							<table align="center">
+							<table>
 								<thead>
 									<tr>
-										<th width="20%">Nombre</th>
-										<th width="20%">Laboratorio</th>
-										<th width="20%">Presentación</th>
-										<th width="20%">Stock Minimo</th>
-										<th width="20%">Stock Máximo</th>
-										<th width="20%">Precio</th>
-										<th width="20%">Cantidad Disponible</th>
-										<th width="20%">Cant. Dosis Disponibles</th>
-										<th width="20%">Operaciones</th>
+										<th>check</th>
+										<th>Nombre <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th>Laboratorio <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
+										<th>Presentacion <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
+										<th>stock_min<br> </th>
+										<th>stock_max<br> </th>
+										<th>Cantidad <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
+										<th>Precio <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
+										<th>Operaciones</th>
 									</tr>
 								</thead>
 								<tbody>
-
-									<?php
-										foreach ($medicamento->result() as $fila) {
-											echo "<form method='POST' action=";
-											echo site_url().'/index.php/medicamento/mostrar';
-											echo ">";
-											echo "<tr>
-													<td>". $fila->nombre ."</td>
-													<td>". $fila->laboratorio ."</td>
-													<td>". $fila->presentacion ."</td>
-													<td>". $fila->stock_min ."</td>
-													<td>". $fila->stock_max ."</td>
-													<td>". $fila->precio ."</td>
-													<td>". $fila->cantidad ."</td>
-													<td>23</td>
-													<td>
-														<div style='line-height:550%;'>
-															<input name = 'codigo' type='hidden' value=".$fila->codigo.">
-															<button style='background-color:#12853A' type='summit' class='button tiny' tittle='Eliminar'>
-																Eliminar
-															</button>
-														</div>
-													</td>
-													<td>  </td>
-												</tr>";
-											echo "</form>";
-										}
-									?>
+									<tr>
+										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
+										<td>Atamel</td>
+										<td>Pficer</td>
+										<td>tabletas</td>
+										<td>10</td>
+										<td>100</td>
+										<td style="color:red;">3</td>
+										<td>6,5 Bs</td>
+										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
+						
+									</tr>
+									<tr>
+										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
+										<td>Brugesic</td>
+										<td>Elmor</td>
+										<td>tabletas</td>
+										<td>24</td>
+										<td>56</td>
+										<td>24</td>
+										<td>20 Bs</td>
+										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
+						
+									</tr>
+									<tr>
+										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
+										<td>Lucentis</td>
+										<td>Novatis</td>
+										<td>solución inyectable</td>
+										<td>5</td>
+										<td>100</td>
+										<td>100</td>
+										<td>200 Bs</td>
+										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
+						
+									</tr>
+									<tr>
+										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
+										<td>Cataflam</td>
+										<td>Novatis</td>
+										<td>tabletas</td>
+										<td>20</td>
+										<td>300</td>
+										<td style="color:red;">14</td>
+										<td>200 Bs</td>
+										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
+									</tr>
+									<tr>
+										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
+										<td>Diprivan</td>
+										<td>AstraZeneca</td>
+										<td>solución inyectable</td>
+										<td>10</td>
+										<td>200</td>
+										<td>163</td>
+										<td>348 Bs</td>
+										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
+									</tr>
+									
 								</tbody>
 							</table>
 						</div>
@@ -148,20 +187,12 @@
 								<li><a href="" style="color:#12853A;">5</a></li>
 								<li class="arrow unavailable"><a href="">&raquo;</a></li>
 							</ul>
-							
-							<a href = "<?php echo site_url().'/';?>index.php/inicio_sesion/cerrar_sesion" style="color:#12853A;">Cerrar Sesión</a>
-					
 						</div>
 					</div>
 					<!--FIN DEL FOOTER-->
 				</div>
 			</div>
 		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 		<br>
 		
 		
