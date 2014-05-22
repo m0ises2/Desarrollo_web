@@ -85,7 +85,12 @@
 										<div class="large-12 medium-12 small-12 columns" align="left">
 											<label>Laboratorio: <?php echo $fila->laboratorio;?></label>
 											<label>Presentación: <?php echo $fila->presentacion;?></label>
-											<br>
+											<?php
+												if( isset($error) )
+												{
+													echo '<div data-alert class="alert-box warning radius" style="width:200px; margin: 10px auto 20px auto;">Cantidad no disponible.</div>';
+												}
+											?>
 											<label>Cantidad</label>
 											<?php
 												echo "<input type='text' name='cant1' pattern='[0-9]+'' value='1' required />";											
@@ -125,6 +130,7 @@
 						<br>
 						<div class="row">
 							<div class="large-12 columns">
+								<a href='../principal' style='color:#12853A;''> Volver </a>
 								<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Procesar">
 							</div>
 						</div>

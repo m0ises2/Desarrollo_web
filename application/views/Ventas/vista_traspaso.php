@@ -128,11 +128,10 @@
 									<label>Observaciones</label>
 									<textarea name="obs1" style="height:110px; resize:none;"></textarea>
 							</div>
-					</div>
+						</div>
 					<!--FIN DE LA TABLA-->
 					
-				</div>
-				<div class="row">
+					<div class="row">
 						<div class="large-12 columns">
 							<?php 
 								if( isset($error) || isset($error2))
@@ -144,10 +143,11 @@
 								}
 								
 							?>
-							<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Procesar">
+							<input type="submit" class="round button" style="color:white; background-color:#12853A; margin-top:35px;" value="Procesar">
 							<?php echo "</form>"; ?>
 						</div>
 					</div>
+				</div>
 			</div>
 		</div>
 		<br>

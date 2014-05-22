@@ -28,7 +28,10 @@ class Medicamento_model extends CI_Model
 	function obt_cantidad( $codigo )
 	{
 		$query = $this->db->query("SELECT cantidad FROM medicamento WHERE codigo=".$codigo);
-		return $query;
+		foreach ($query->result() as $value) {
+			$resul = $value->cantidad;
+		}
+		return $resul;
 	}
 
 	function obt_cantidad_dosis( $codigo )
