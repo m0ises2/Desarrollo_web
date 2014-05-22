@@ -76,7 +76,7 @@
 					<!--FIN DEL HEADER-->
 					
 					<!--INICIO DEL CUERPO-->
-					<form method="POST" action=<?php site_url()?>/index.php/medicamento/eliminar>
+					<form method="POST" action='<?php echo site_url();?>index.php/medicamento/eliminar'>
 						<div class="row">
 							<div class="small-4 small-centered columns">
 								<fieldset style="border-color:#12853A;">
@@ -130,7 +130,7 @@
 						<br>
 						<div class="row">
 							<div class="large-12 columns">
-								<a href='../principal' style='color:#12853A;''> Volver </a>
+								<a href='../principal' style='color:#12853A;'> Volver </a>
 								<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Procesar">
 							</div>
 						</div>
