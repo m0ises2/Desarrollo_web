@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= "http://".$_SERVER['SERVER_NAME']."/Desarrollo_web";
+$config['base_url']	= "http://".$_SERVER['SERVER_NAME']."/";
 
 /*
 |--------------------------------------------------------------------------

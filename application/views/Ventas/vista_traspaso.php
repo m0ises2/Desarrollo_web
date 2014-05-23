@@ -136,10 +136,10 @@
 							<?php 
 								if( isset($error) || isset($error2))
 								{
-									echo "<a href='../principal' style='color:#12853A;''>Volver</a>";
+									echo "<a href='../principal' style='color:#12853A;'>Volver</a>";
 								}else
 								{
-									echo "<a href='principal' style='color:#12853A;''>Volver</a>";
+									echo "<a href='principal' style='color:#12853A;'>Volver</a>";
 								}
 								
 							?>

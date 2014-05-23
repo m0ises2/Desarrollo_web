@@ -87,5 +87,10 @@
 				redirect('/');
 			}
 		}
+
+		function agregar()
+		{
+			$this->load->view("Administrador/nuevo_med");
+		}
 	};
 ?>

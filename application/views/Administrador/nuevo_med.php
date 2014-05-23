@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="css/foundation.css" />
+		<link rel="stylesheet" href="<?php echo site_url().'/';?>assets/css/foundation.css" />
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
@@ -24,13 +24,13 @@
 					
 					<div class="row">
 						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
 						</div>
 						<div class="large-8 medium-8 small-8 columns" align="center">
 							<h2>Nuevo medicamento</h2>
 						</div>
 						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
 						</div>
 					</div>
 					<br>
@@ -47,7 +47,7 @@
 													<input type="text" placeholder="Inserte su texto" style="height:31px;">
 												</div>
 												<div class="large-4 small-3 columns">
-													<a href="#" class="round alert button expand" style="color:white;">Buscar</a>
+													<a href="#" class="round alert button expand" style="color:white; background-color:#12853A;">Buscar</a>
 												</div>
 											</div>
 										</li>
@@ -173,6 +173,7 @@
 					<br>
 					<div class="row">
 						<div class="large-12 columns">
+							<a href='<?php echo site_url()?>/index.php/principal' style='color:#12853A;'>Volver</a>
 							<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Procesar">
 						</div>
 					</div>
