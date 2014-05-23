@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo site_url().'/';?>assets/css/foundation.css"/>
+		<link rel="stylesheet" href="<?php echo site_url(); ?>/assets/css/foundation.css"/>
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
@@ -24,13 +24,13 @@
 					
 					<div class="row">
 						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 						<div class="large-8 medium-8 small-8 columns" align="center">
 							<h2>Stock de productos</h2>
 						</div>
 						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 					</div>
 					<br>
@@ -60,13 +60,7 @@
 											<ul class="dropdown">
 												<li><a href="">Búsqueda avanzada</a></li>
 												<li><a href="">Nuevo medicamento</a></li>
-												<li><label>Para los seleccionados</label></li>
-												<li><a href="">Nuevo lote</a></li>
-												<li><a href="">Modificar</a></li>
-												<li><a href="">Dar de baja</a></li>
 												<li><a href="">Traspaso</a></li>
-												<li><label>Sesión</label></li>
-												<li><a href="">Cerrar sesión</a></li>
 											</ul>
 										</li>
 									</ul>
@@ -92,12 +86,12 @@
 					<!--FIN DEL HEADER-->
 					
 					<!--INICIO DE LA TABLA-->
+					<?php $this->load->library('encrypt'); ?>
 					<div class="row">
 						<div class="large-12 medium-12 small-12 columns" align="center">
 							<table>
 								<thead>
 									<tr>
-										<th>check</th>
 										<th>Nombre <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
 										<th>Laboratorio <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
 										<th>Presentacion <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
@@ -105,69 +99,49 @@
 										<th>stock_max<br> </th>
 										<th>Cantidad <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
 										<th>Precio <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
+										<th>Dosis <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
 										<th>Operaciones</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php
+										foreach ($medicamento->result() as $fila):
+									?>
 									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Atamel</td>
-										<td>Pficer</td>
-										<td>tabletas</td>
-										<td>10</td>
-										<td>100</td>
-										<td style="color:red;">3</td>
-										<td>6,5 Bs</td>
-										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
-						
+										<td><?php echo $fila->nombre; ?></td>
+										<td><?php echo $fila->laboratorio; ?></td>
+										<td><?php echo $fila->presentacion; ?></td>
+										<td><?php echo $fila->stock_min; ?></td>
+										<td><?php echo $fila->stock_max; ?></td>
+										<?php echo ($fila->cantidad<$fila->stock_min ? "<td style='color:red;'><b>$fila->cantidad</b></td>\n" : "<td>$fila->cantidad</td>\n"); ?>
+										<td><?php echo $fila->precio; ?></td>
+										<td><?php echo $fila->dosis; ?></td>
+										<td>
+											<nav class="top-bar" style="background-color:white;" data-topbar>
+												<section class="top-bar-section">
+													<ul>
+														<li class="has-dropdown" style="background-color:white;">
+															<a href="" class="round button expand" style="color:white; background-color:#12853A;">
+																Hacer...
+															</a>
+															<ul class="dropdown">
+																<li>
+																	<a href="<?php echo site_url()."index.php/".$this->encrypt->encode(strval($fila->codigo)); ?>">
+																		Nuevo lote
+																	</a>
+																</li>
+																<li><a href="">Ver lotes</a></li>
+																<li><a href="">Ver info</a></li>
+																<li><a href="">Modificar</a></li>
+																<li><a href="">Eliminar</a></li>
+															</ul>
+														</li>
+													</ul>
+												</section>
+											</nav>
+										</td>
 									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Brugesic</td>
-										<td>Elmor</td>
-										<td>tabletas</td>
-										<td>24</td>
-										<td>56</td>
-										<td>24</td>
-										<td>20 Bs</td>
-										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
-						
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Lucentis</td>
-										<td>Novatis</td>
-										<td>solución inyectable</td>
-										<td>5</td>
-										<td>100</td>
-										<td>100</td>
-										<td>200 Bs</td>
-										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
-						
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Cataflam</td>
-										<td>Novatis</td>
-										<td>tabletas</td>
-										<td>20</td>
-										<td>300</td>
-										<td style="color:red;">14</td>
-										<td>200 Bs</td>
-										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
-									</tr>
-									<tr>
-										<td><input id="checkbox1" name="checkbox1" type="checkbox" value=""></td>
-										<td>Diprivan</td>
-										<td>AstraZeneca</td>
-										<td>solución inyectable</td>
-										<td>10</td>
-										<td>200</td>
-										<td>163</td>
-										<td>348 Bs</td>
-										<td><a href="" style="color:#12853A;">Ver lotes</a><br><a href="" style="color:#12853A;">Ver info</a></td>
-									</tr>
-									
+									<?php endforeach; ?>
 								</tbody>
 							</table>
 						</div>
@@ -199,8 +173,17 @@
 		<?php #require("template/footer.php"); ?>
 		<script src="js/jquery.js"></script>
 		<script src="js/foundation.min.js"></script>
-		<script>
-			$(document).foundation();
+		<script src="js/vendor/jquery.js"></script>
+		<script src="js/foundation/foundation.js"></script>
+		<script src="js/foundation/foundation.dropdown.js"></script>
+		
+		<script>$(document).foundation(
+			{
+				dropdown:{
+					// specify the class used for active dropdowns
+					active_class: 'open'
+				}
+			});
 		</script>
 	</body>
 </html>
