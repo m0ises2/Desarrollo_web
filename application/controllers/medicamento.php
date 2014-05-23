@@ -73,12 +73,15 @@
 								'medicamento' => $data);				
 						
 							$this->load->view('Ventas/baja',$datos);
-						}
-						if( $this->medicamento_model->comprobar_cantidad($_POST["codigo"], $_POST["cant1"]))
+						}else
 						{
-							$this->medicamento_model->borrar($_POST["codigo"], $_POST["cant1"]);
-							redirect('/');
+							if( $this->medicamento_model->comprobar_cantidad($_POST["codigo"], $_POST["cant1"]))
+							{
+								$this->medicamento_model->borrar($_POST["codigo"], $_POST["cant1"]);
+								redirect('/');
+							}
 						}
+						redirect('/');
 					}
 					
 				}

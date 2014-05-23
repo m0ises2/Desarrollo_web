@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo site_url().'/';?>assets/css/foundation.css" />
+		<link rel="stylesheet" href="<?php echo site_url();?>assets/css/foundation.css" />
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
@@ -22,12 +22,12 @@
 					<h2>Bienvenido al sistema</h2>
 					<br>
 					<div class="row">
-						<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="15%" height="15%">
+						<img src="<?php echo site_url()?>assets/img/logo.png" width="15%" height="15%">
 					</div>
 					<br>
 					<div class="row">
 						<div class="large-12 medium-12 small-12 columns" align="center">
-							<form method="POST" action= <?php echo site_url();?>inicio_sesion/validar>
+							<form method="POST" action = "<?php echo site_url();?>inicio_sesion/validar">
 								<div class="panel" style="width:300px" align="left">
 									<?php
 

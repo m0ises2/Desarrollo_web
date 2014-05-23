@@ -58,7 +58,6 @@
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
 												<li><a href="">Búsqueda avanzada</a></li>
-<<<<<<< HEAD
 												<li><a href= "<?php echo site_url();?>medicamento/agregar" >Nuevo medicamento</a></li>
 												<li><label>Para los seleccionados</label></li>
 												<li><a href="">Nuevo lote</a></li>
@@ -67,14 +66,7 @@
 												<li><a href="">Traspaso</a></li>
 											</ul>											
 										</li>
-									</ul>
-=======
-												<li><a href="">Nuevo medicamento</a></li>
-												<li><a href="">Traspaso</a></li>
-											</ul>
->>>>>>> c7628d72633c4d133bdeda63586185ee2e2fb94d
-										</li>
-									</ul>
+									</ul>	
 								</section>
 							</nav>
 							
@@ -104,13 +96,13 @@
 								<thead>
 									<tr>
 										<th>Nombre <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
-										<th>Laboratorio <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
-										<th>Presentacion <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
+										<th>Laboratorio <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th>Presentacion <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
 										<th>stock_min<br> </th>
 										<th>stock_max<br> </th>
-										<th>Cantidad <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
-										<th>Precio <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
-										<th>Dosis <a href="y" style="color:#12853A;">&uarr;</a> <a href="x" style="color:#12853A;">&darr;</a></th>
+										<th>Cantidad <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th>Precio <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th>Dosis <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
 										<th>Operaciones</th>
 									</tr>
 								</thead>
