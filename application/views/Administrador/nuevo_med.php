@@ -8,9 +8,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
 		<link rel="stylesheet" href="<?php echo site_url().'/';?>assets/css/foundation.css" />
+		<script src="<?php echo site_url();?>assets/js/jquery.js"></script>
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
-		
+		<script type="text/javascript">
+			function agregar_compuesto(texto)
+			{
+				 document.getElementById("principio").innerHTML += "<br>" + texto;
+			}
+		</script>
 	</head>
 
 	<body>
@@ -65,9 +71,7 @@
 												<li><a href="">Nuevo lote</a></li>
 												<li><a href="">Modificar</a></li>
 												<li><a href="">Dar de baja</a></li>
-												<li><a href="">Traspaso</a></li>
-												<li><label>Sesión</label></li>
-												<li><a href="">Cerrar sesión</a></li>
+												<li><a href="">Traspaso</a></li>												
 											</ul>
 										</li>
 									</ul>
@@ -88,7 +92,7 @@
 					<div class="row">
 						<div class="large-6 medium-9 small-centered columns" align="center">
 							<fieldset style="border-color:#12853A;">
-								<legend>Información</legend>
+								<legend>Información:</legend>
 								<div class="row">
 									<div class="large-12 medium-12 small-12 columns" align="left">
 										<label>Nombre</label>
@@ -112,10 +116,10 @@
 											</div>
 										</div>
 										<br>
-										<p><strong>Principio(s) activo(s)</strong></p>
+										<p><strong>Principio(s) activo(s):</strong></p>
 										<br>
-										<div class="row">
-											<div class="large-8 medium-8 small-8 columns">
+										<div id="principio" class="row">
+											<div class="large-8 medium-8  small-8  columns">
 												<label>nombre</label>
 												<input type="text" name="p1nom" required />
 											</div>
@@ -124,28 +128,13 @@
 												<input type="text" name="p1masa" required />
 											</div>
 										</div>
-										<div class="row">
-											<div class="large-8 medium-8 small-8 columns">
-												<label>nombre</label>
-												<input type="text" name="p2nom" required />
-											</div>
-											<div class="large-4 medium-4 small-4 columns">
-												<label>masa (mg)</label>
-												<input type="text" name="p2masa" required />
-											</div>
-										</div>
-										<div class="row">
-											<div class="large-8 medium-8 small-8 columns">
-												<label>nombre</label>
-												<input type="text" name="p3nom" required />
-											</div>
-											<div class="large-4 medium-4 small-4 columns">
-												<label>masa (mg)</label>
-												<input type="text" name="p3masa" required />
+										<div class = "row">
+											<div class="large-4 medium-4 small-4 columns" align: "left">
+												<input type="button" value="otro" onClick="agregar_compuesto('<a>sexo</a>')">										
 											</div>
 										</div>
 										<br>
-										<p><strong>Información para el primer lote</strong></p>
+										<p><strong>Información para el lote:</strong></p>
 										<br>
 										<div class="row">
 											<div class="large-4 medium-4 small-12 columns">
@@ -173,7 +162,7 @@
 					<br>
 					<div class="row">
 						<div class="large-12 columns">
-							<a href='<?php echo site_url()?>/index.php/principal' style='color:#12853A;'>Volver</a>
+							<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Volver</a>
 							<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Procesar">
 						</div>
 					</div>

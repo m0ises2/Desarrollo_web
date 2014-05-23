@@ -46,28 +46,27 @@
 													<input type="text" placeholder="Inserte su texto" style="height:31px;">
 												</div>
 												<div class="large-4 small-3 columns">
-													<a href="#" class="round alert button expand" style="color:white;">Buscar</a>
+													<a href="#" class="round alert button expand" style="color:white; background-color:#12853A;">Buscar</a>
 												</div>
 											</div>
 										</li>
 									</ul>
 									
 									<!-- Left Nav Section -->
-									<ul class="left">
-										<li class="divider" style="width:15px;"></li>
+									<ul class="left" style="margin-left:15px">
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
 												<li><a href="">Búsqueda avanzada</a></li>
-												<li><a href="">Nuevo medicamento</a></li>
+												<li><a href= "<?php echo site_url();?>medicamento/agregar" >Nuevo medicamento</a></li>
 												<li><label>Para los seleccionados</label></li>
 												<li><a href="">Nuevo lote</a></li>
 												<li><a href="">Modificar</a></li>
 												<li><a href="">Dar de baja</a></li>
 												<li><a href="">Traspaso</a></li>
-												<li><label>Sesión</label></li>
-												<li><a href="">Cerrar sesión</a></li>
-											</ul>
+											</ul>											
+										</li>
+									</ul>
 										</li>
 									</ul>
 								</section>
@@ -188,6 +187,7 @@
 								<li class="arrow unavailable"><a href="">&raquo;</a></li>
 							</ul>
 						</div>
+						<a href = "<?php echo site_url();?>inicio_sesion/cerrar_sesion" style="color:#12853A;">Cerrar Sesión</a>
 					</div>
 					<!--FIN DEL FOOTER-->
 				</div>

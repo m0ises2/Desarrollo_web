@@ -34,49 +34,10 @@
 						</div>
 					</div>
 					<br>
-					<div class="row">
-						<div class="large-12 medium-12 small-12 columns" align="center">
-							<nav class="top-bar" data-topbar>
-								<section class="top-bar-section">
-									<!-- Right Nav Section -->
-									<ul class="right">
-										<li class="has-form">
-											<div class="row collapse">
-												<div class="large-7 small-9 columns">
-													<input type="text" placeholder="Inserte su texto" style="height:31px;">
-												</div>
-												<div class="large-5 small-3 columns">
-													<a href="#" class="button radius round" style="color:white; background-color:#12853A;">Buscar</a>
-												</div>
-											</div>
-										</li>
-									</ul>
-									
-									<!-- Left Nav Section -->
-									<ul class="left">
-										<li class="divider" style="width:15px;"></li>
-										<li class="has-dropdown">
-											<a class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
-											<ul class="dropdown">
-												<li><a href='#'>---</a></li>
-												<li><a href='#'>Traspaso</a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</nav>
-							
-							<br>
-							<br>
-							<br>
-							
-						</div>
-					</div>
-					<br>
 					<!--FIN DEL HEADER-->
 					
 					<!--INICIO DEL CUERPO-->
-					<form method="POST" action='<?php echo site_url();?>index.php/medicamento/eliminar'>
+					<form method="POST" action='<?php echo site_url();?>medicamento/eliminar'>
 						<div class="row">
 							<div class="small-4 small-centered columns">
 								<fieldset style="border-color:#12853A;">

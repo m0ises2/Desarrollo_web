@@ -10,7 +10,7 @@ class Inicio_sesion extends CI_Controller
 
 		if( $this->session->userdata('user_id') ) 
 		{
-			redirect('/index.php/principal','refresh');		
+			redirect('/principal','refresh');		
 		}
 
 		$this->load->view("Ventas/inicio");
@@ -41,7 +41,7 @@ class Inicio_sesion extends CI_Controller
 		{
 			$this->establecer_sesion();
 			unset($this->data);
-			redirect('/index.php/principal','refresh');
+			redirect('/principal','refresh');
 		}else
 		{
 			$error = array(
@@ -58,7 +58,7 @@ class Inicio_sesion extends CI_Controller
 			$this->session->sess_destroy();			
 		}
 
-		redirect('/index.php/inicio_sesion','refresh');
+		redirect('/inicio_sesion','refresh');
 	}
 	
 }

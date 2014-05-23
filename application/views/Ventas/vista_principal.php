@@ -105,7 +105,7 @@
 									<?php
 										foreach ($medicamento->result() as $fila) {
 											echo "<form method='POST' action=";
-											echo site_url().'/index.php/medicamento/mostrar';
+											echo site_url().'medicamento/mostrar';
 											echo ">";
 											echo "<tr>
 													<td>". $fila->nombre ."</td>
@@ -164,7 +164,7 @@
 								<li class="arrow unavailable"><a href="">&raquo;</a></li>
 							</ul>
 							
-							<a href = "<?php echo site_url().'/';?>index.php/inicio_sesion/cerrar_sesion" style="color:#12853A;">Cerrar Sesión</a>
+							<a href = "<?php echo site_url();?>inicio_sesion/cerrar_sesion" style="color:#12853A;">Cerrar Sesión</a>
 					
 						</div>
 					</div>

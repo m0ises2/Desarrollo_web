@@ -27,7 +27,7 @@
 					<br>
 					<div class="row">
 						<div class="large-12 medium-12 small-12 columns" align="center">
-							<form method="POST" action= <?php echo site_url().'/';?>index.php/inicio_sesion/validar>
+							<form method="POST" action= <?php echo site_url();?>inicio_sesion/validar>
 								<div class="panel" style="width:300px" align="left">
 									<?php
 
