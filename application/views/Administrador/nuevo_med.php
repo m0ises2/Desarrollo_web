@@ -61,56 +61,14 @@
 					</div>
 					<br>
 					<!-- BARRA -->
-					<div class="row">
-						<div class="large-12 medium-12 small-12 columns" align="center">
-							<nav class="top-bar" data-topbar>
-								<section class="top-bar-section">
-									<!-- Right Nav Section -->
-									<ul class="right">
-										<li class="has-form">
-											<div class="row collapse">
-												<div class="large-8 small-9 columns">
-													<input type="text" placeholder="Inserte su texto" style="height:31px;">
-												</div>
-												<div class="large-4 small-3 columns">
-													<a href="#" class="round alert button expand" style="color:white; background-color:#12853A;">Buscar</a>
-												</div>
-											</div>
-										</li>
-									</ul>
-									
-									<!-- Left Nav Section -->
-									<ul class="left">
-										<li class="divider" style="width:15px;"></li>
-										<li class="has-dropdown">
-											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
-											<ul class="dropdown">
-												<li><a href="">Búsqueda avanzada</a></li>
-												<li><a href="">Nuevo medicamento</a></li>
-												<li><label>Para los seleccionados</label></li>
-												<li><a href="">Nuevo lote</a></li>
-												<li><a href="">Modificar</a></li>
-												<li><a href="">Dar de baja</a></li>
-												<li><a href="">Traspaso</a></li>												
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</nav>
-							
-							<br>
-							<br>
-							<br>
-							
-						</div>
-					</div>
+					
 					<!-- FIN DE BARRA -->
 					<br>
 					<!--FIN DEL HEADER-->
 					
 					<!--INICIO DEL CUERPO-->
 					<div class="row">
-						<form method="POST" action="#">
+						<form method="POST" action="<?php echo site_url()?>medicamento/agregar">
 							<div class="large-8 medium-10 small-centered columns" align="center">
 								<fieldset style="border-color:#12853A;">
 									<legend>Información:</legend>
@@ -118,14 +76,22 @@
 										<div class="large-12 medium-12 small-12 columns" align="left">
 											<div class = "row">
 												<div class = "large-6 medium-6 small-6 columns">
-													<label>Nombre:</label>
-													<input type="text" name="nom" pattern = "[aA-zZ]+" required />
+													<?php 
+														if(!isset($error))	
+														{
+															echo "<label>Nombre:</label>";
+														}else
+														{
+															echo "<label style='color:red;'>Nombre:</label>";
+														}
+													?>
+													<input type="text" name="nom" pattern = "^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$" required />
 												</div>
 											</div>
 											<div class = "row">
 												<div class = "large-6 medium-6 small-6 columns">
 													<label>Laboratorio:</label>
-													<input type="text" name="lab" pattern = "[aA-zZ]+" required />
+													<input type="text" name="lab" pattern = "^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$" required />
 												</div>
 											</div>
 											<div class = "row">
@@ -135,17 +101,21 @@
 												</div>
 											</div>
 											<div class="row">
-												<div class="large-4 medium-4 small-4 columns">
+												<div class="large-3 medium-3 small-3 columns">
 													<label>stock_min:</label>
 													<input type="text" name="smin" pattern = "[0-9]+" required />
 												</div>
-												<div class="large-4 medium-4 small-4 columns">
+												<div class="large-3 medium-3 small-3 columns">
 													<label>stock_max:</label>
 													<input type="text" name="smax" pattern = "[0-9]+" required />
 												</div>
-												<div class="large-4 medium-4 small-4 columns">
+												<div class="large-3 medium-3 small-3 columns">
 													<label>Precio (Bs. F):</label>
-													<input type="text" name="precio" pattern = "[0-9]+" required />
+													<input type="text" name="precio" pattern = "^[0-9]+\.?[0-9]*$" required />
+												</div>
+												<div class="large-3 medium-3 small-3 columns">
+													<label><span data-tooltip class="radius round" title="Cantidad de medicamento por caja.">Dosis:</span></label>
+													<input type="text" name="dosis" pattern = "[0-9]+" required />
 												</div>
 											</div>
 											<br>
@@ -172,11 +142,11 @@
 											<div class="row">
 												<div class="large-2 medium-2 small-3 columns">
 													<label>Lote:</label>
-													<input type="text" name="cant" pattern = "[0-9]+" required />
+													<input type="text" name="lote" pattern = "[0-9]+" required />
 												</div>
 												<div class="large-2 medium-2 small-3 columns">
 													<label>Cantidad:</label>
-													<input type="text" name="cant" pattern = "[0-9]+" required />
+													<input type="text" name="cant" pattern = "[0-9]+" value = "1" required />
 												</div>
 												<div class="large-4 medium-4 small-3 columns">
 													<label>Elaboración:</label>

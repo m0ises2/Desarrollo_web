@@ -39,7 +39,7 @@
 				}
 			}else
 			{
-				redirect('/index.php/inicio_sesion','refresh');
+				redirect('/inicio_sesion','refresh');
 			}
 		}	
 

@@ -17,14 +17,8 @@
 				$this->load->view('Ventas/baja',$datos);
 			}else
 			{
-				redirect('/');
-			}
-			
-			//echo '<pre> POST'.print_r($_POST,true).'</pre>';
-			/*foreach ($data->result() as $fila ) {
-				echo $fila->laboratorio;
-				echo " ".$fila->presentacion;
-			}*/
+				redirect("/");
+			}			
 		}
 
 		function eliminar()
@@ -91,9 +85,76 @@
 			}
 		}
 
+		function alta()
+		{
+			if( $this->session->userdata('user_id') )
+			{
+				$this->load->view("Administrador/nuevo_med");
+			}else
+			{
+				redirect("/");
+			}			
+		}
+
 		function agregar()
 		{
-			$this->load->view("Administrador/nuevo_med");
+			if( $this->session->userdata('user_id') && $_POST )
+			{
+				$this->load->model("medicamento_agregar");
+								
+				if( $this->medicamento_agregar->existe_lote($_POST["lote"]) )
+				{
+					$result = $this->medicamento_agregar->existe( $_POST["nom"], $_POST["lab"], $_POST["pres"] );
+					if( $result->num_rows() > 0 )
+					{
+						foreach( $result->result() as $fila )
+						{
+							$this->medicamento_agregar->modificar_med( $fila->codigo, $_POST["cant"] );
+						}
+						redirect("/");
+					}else
+					{
+						$data = array('error' => TRUE);
+						$this->load->view("Administrador/nuevo_med",$data);
+					}					
+				}else
+				{
+					$result = $this->medicamento_agregar->existe( $_POST["nom"], $_POST["lab"], $_POST["pres"] );
+					if( $result->num_rows() > 0 )
+					{
+						foreach( $result->result() as $fila )
+						{
+							$this->medicamento_agregar->modificar_med( $fila->codigo, $_POST["cant"] );
+						}						
+					}else
+					{
+						//se inserta el medicamento:
+						$this->medicamento_agregar->insertar_med(array('nombre' => $_POST["nom"],
+																		'laboratorio' => $_POST["lab"],
+																		'presentacion' => $_POST["pres"],
+																		'stock_min'=> $_POST["smin"],
+																		'stock_max' => $_POST["smax"],
+																		'precio' => $_POST["precio"],
+																		'cantidad' => $_POST["cant"],
+																		'dosis' => $_POST["dosis"]
+							));
+					}
+					$query = $this->medicamento_agregar->existe( $_POST["nom"], $_POST["lab"], $_POST["pres"] );
+					foreach($query->result() as $fila)
+					{
+						$codigo = $fila->codigo;
+					}
+
+					//agregar lote
+					$this->medicamento_agregar->agregar_lote($_POST["lote"],$_POST["cant"],$_POST["fecha_e"],$_POST["fecha_v"],$codigo);
+					redirect("/");
+				}
+
+
+			}else
+			{
+				redirect("/");
+			}	
 		}
 	};
 ?>

@@ -58,7 +58,7 @@
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
 												<li><a href="">Búsqueda avanzada</a></li>
-												<li><a href= "<?php echo site_url();?>medicamento/agregar" >Nuevo medicamento</a></li>
+												<li><a href= "<?php echo site_url();?>medicamento/alta" >Nuevo medicamento</a></li>
 												<li><label>Para los seleccionados</label></li>
 												<li><a href="">Nuevo lote</a></li>
 												<li><a href="">Modificar</a></li>
