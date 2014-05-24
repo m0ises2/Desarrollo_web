@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="css/foundation.css" />
+		<link rel="stylesheet" href="<?php echo site_url();?>assets/css/foundation.css" />
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
@@ -24,13 +24,13 @@
 					
 					<div class="row">
 						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url();?>assets/img/logo.png" width="50%" height="50%">
 						</div>
 						<div class="large-8 medium-8 small-8 columns" align="center">
 							<h2>Stock de productos</h2>
 						</div>
 						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url();?>assets/img/logo.png" width="50%" height="50%">
 						</div>
 					</div>
 					<br>
@@ -47,27 +47,23 @@
 													<input type="text" placeholder="Inserte su texto" style="height:31px;">
 												</div>
 												<div class="large-4 small-3 columns">
-													<a href="#" class="round alert button expand" style="color:white;">Buscar</a>
+													<a href="#" class="round alert button expand" style="color:white; background-color:#12853A;">Buscar</a>
 												</div>
 											</div>
 										</li>
 									</ul>
 									
 									<!-- Left Nav Section -->
-									<ul class="left">
-										<li class="divider" style="width:15px;"></li>
+									<ul class="left" style="margin-left:15px">
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
 												<li><a href="">Búsqueda avanzada</a></li>
 												<li><a href="">Nuevo medicamento</a></li>
-												<li><label>Para los seleccionados</label></li>
 												<li><a href="">Nuevo lote</a></li>
 												<li><a href="">Modificar</a></li>
 												<li><a href="">Dar de baja</a></li>
-												<li><a href="">Traspaso</a></li>
-												<li><label>Sesión</label></li>
-												<li><a href="">Cerrar sesión</a></li>
+												<li><a href="">Traspaso</a></li>												
 											</ul>
 										</li>
 									</ul>
@@ -89,10 +85,14 @@
 						<div class="large-6 medium-9 small-centered columns">
 							<fieldset style="border-color:#12853A;" style="align:left">
 								<legend>Información</legend>
-								<label>Nombre: Supradin</label>
-								<label>Laboratorio: Bayer</label>
-								<label>Presentación: tabletas</label>
-								<br>
+								<?php
+									foreach( $medicamento->result() as $fila )
+									{
+										echo "<label><b>Nombre:</b> ".$fila->nombre."</label>";
+										echo "<label><b>Laboratorio:</b> ".$fila->laboratorio."</label>";
+										echo "<label><b>Presentación:</b> ".$fila->presentacion."</label>";
+									}
+								?>							
 								<p><strong>Principio(s) activo(s)</strong></p>
 								<label>Fósforo - 62,5 mg</label>
 								<label>Vitamina B1 - 1,5 mg</label>
@@ -104,7 +104,11 @@
 					<br>
 					<br>
 					<!--FIN DEL CUERPO-->
-					
+					<div class="row">
+						<div class="small-12 medium-12 large-12 columns">
+							<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Volver</a>
+						</div>
+					</div>
 					
 				</div>
 			</div>

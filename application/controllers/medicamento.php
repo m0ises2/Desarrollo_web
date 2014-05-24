@@ -7,7 +7,7 @@
 			if( $_POST )
 			{
 				$data = $this->medicamento_model->obt_info($_POST['codigo']);
-				$data2 = $this->medicamento_model->obt_info($_POST['codigo']);
+				$data2 = $this->medicamento_model->obt_codigo_lote($_POST['codigo']);
 
 				//$datos = array('medicamento' => $data);
 				$datos = array(
@@ -155,6 +155,29 @@
 			{
 				redirect("/");
 			}	
+		}
+
+		function ver_infor()
+		{
+			if( $this->session->userdata('user_id') && $_GET )
+			{
+				$this->load->model("medicamento_model");
+				$codigo = $this->encrypt->decode($_GET["id"]);
+				if( is_numeric($codigo) )
+				{
+					$query = $this->medicamento_model->obt_info($codigo);
+					$data = array('medicamento' => $query);
+
+					$this->load->view("Administrador/info",$data);
+				}else
+				{
+					redirect("/");
+				}
+				
+			}else
+			{
+
+			}
 		}
 	};
 ?>

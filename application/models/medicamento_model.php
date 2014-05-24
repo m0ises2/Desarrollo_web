@@ -19,9 +19,9 @@ class Medicamento_model extends CI_Model
 		return $query ;
 	}
 
-	function obt_codigo_lote()
+	function obt_codigo_lote( $codigo )
 	{
-		$query = $this->db->query("SELECT codigo_lote FROM medicamento WHERE codigo = ".$codigo);
+		$query = $this->db->query("SELECT num_lote FROM principal WHERE codigo_med = ".$codigo);
 		return $query ;
 	}
 

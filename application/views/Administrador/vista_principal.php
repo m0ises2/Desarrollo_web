@@ -63,7 +63,7 @@
 												<li><a href="">Nuevo lote</a></li>
 												<li><a href="">Modificar</a></li>
 												<li><a href="">Dar de baja</a></li>
-												<li><a href="">Traspaso</a></li>
+												<li><a href="<?php echo site_url()?>traspaso">Traspaso</a></li>
 											</ul>											
 										</li>
 									</ul>	
@@ -134,7 +134,7 @@
 																	</a>
 																</li>
 																<li><a href="">Ver lotes</a></li>
-																<li><a href="">Ver info</a></li>
+																<li><a href="<?php echo site_url()."medicamento/ver_infor/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Ver info</a></li>
 																<li><a href="">Modificar</a></li>
 																<li><a href="">Eliminar</a></li>
 															</ul>

@@ -71,8 +71,8 @@
 												
 												<?php foreach ($lote->result() as $Lote)
 												{ 
-													echo "<option value=" . $Lote->codigo_lote .">";
-													echo $Lote->codigo_lote. "</option>";
+													echo "<option value=" . $Lote->num_lote .">";
+													echo $Lote->num_lote. "</option>";
 												}?>
 
 											</select>
