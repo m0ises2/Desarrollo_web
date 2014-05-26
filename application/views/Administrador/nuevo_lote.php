@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="css/foundation.css" />
+		<link rel="stylesheet" href="<?php echo site_url(); ?>/assets/css/foundation.css" />
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
@@ -24,13 +24,13 @@
 					
 					<div class="row">
 						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 						<div class="large-8 medium-8 small-8 columns" align="center">
 							<h2>Nuevo lote para...</h2>
 						</div>
 						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo site_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 					</div>
 					<br>
@@ -47,15 +47,14 @@
 													<input type="text" placeholder="Inserte su texto" style="height:31px;">
 												</div>
 												<div class="large-4 small-3 columns">
-													<a href="#" class="round alert button expand" style="color:white;">Buscar</a>
+													<a href="#" class="round alert button expand" style="color:white; background-color:#12853A;">Buscar</a>
 												</div>
 											</div>
 										</li>
 									</ul>
 									
 									<!-- Left Nav Section -->
-									<ul class="left">
-										<li class="divider" style="width:15px;"></li>
+									<ul class="left" style="margin-left:15px">
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
@@ -84,23 +83,31 @@
 					<br>
 					<!--FIN DEL HEADER-->
 					
-					<p><strong>Ritalin - Novatis - comprimidos</strong></p>
+					<?php
+						foreach ($medicamento->result() as $fila) {
+							echo $fila->nombre ." - ". $fila->laboratorio ." - ". $fila->presentacion;
+						}
+					?>
 					<br>
 					<!--INICIO DEL CUERPO-->
 					<div class="row">
-						<div class="large-6 medium-9 small-centered columns" align="center">
+						<div class="large-8 medium-8 small-12 small-centered columns" align="center">
 							<fieldset style="border-color:#12853A;">
 								<legend>Información</legend>
 								<div class="row">
-											<div class="large-4 medium-4 small-12 columns">
-												<label>cantidad</label>
+											<div class="large-4 medium-4 small-3 columns">
+												<label>Número de lote</label>
 												<input type="text" name="cant" required />
 											</div>
-											<div class="large-4 medium-4 small-6 columns">
+											<div class="large-2 medium-2 small-3 columns">
+												<label>Cantidad</label>
+												<input type="text" name="cant" required />
+											</div>
+											<div class="large-3 medium-3 small-3 columns">
 												<label>Fecha de elav.</label>
 												<input type="text" name="fecha_e" required />
 											</div>
-											<div class="large-4 medium-4 small-6 columns">
+											<div class="large-3 medium-3 small-3 columns">
 												<label>Fecha de ven.</label>
 												<input type="text" name="fecha_v" required />
 											</div>
@@ -114,6 +121,7 @@
 					<br>
 					<div class="row">
 						<div class="large-12 columns">
+							<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Volver</a>
 							<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Procesar">
 						</div>
 					</div>

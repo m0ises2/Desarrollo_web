@@ -4,21 +4,27 @@
 	
 		function index()
 		{
-			$this->load->model('medicamento_model');
-			$data = $this->medicamento_model->obt_medicamentos();
-			$data2 = $this->medicamento_model->obt_unidosis();
-			
-			$uni = array();
-					
-			foreach( $data2->result() as $fila2 )
+			if( $this->session->userdata('user_id') )
 			{
-				$uni[$fila2->codigo_med] = $fila2->cantidad_dosis;
+				$this->load->model('medicamento_model');
+				$data = $this->medicamento_model->obt_medicamentos();
+				$data2 = $this->medicamento_model->obt_unidosis();
+				
+				$uni = array();
+						
+				foreach( $data2->result() as $fila2 )
+				{
+					$uni[$fila2->codigo_med] = $fila2->cantidad_dosis;
+				}
+				
+				$data = array('medicamento' => $data,
+								'unidosis' => $uni);
+				
+				$this->load->view("Ventas/vista_traspaso",$data);
+			}else
+			{
+				redirect("inicio_sesion");
 			}
-			
-			$data = array('medicamento' => $data,
-							'unidosis' => $uni);
-			
-			$this->load->view("Ventas/vista_traspaso",$data);
 			
 		}
 

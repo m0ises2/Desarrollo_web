@@ -1,6 +1,14 @@
 <?php
 	class Medicamento extends CI_Controller
 	{
+		function index()
+		{
+			if( !$this->session->userdata('user_id') )
+			{
+				redirect("inicio_sesion");
+			}
+		}
+
 		function mostrar()
 		{
 			$this->load->model('medicamento_model');
@@ -17,7 +25,22 @@
 				$this->load->view('Ventas/baja',$datos);
 			}else
 			{
-				redirect("/");
+				if( $_GET )
+				{
+					$codigo = $this->encrypt->decode($_GET["id"]);;
+					$data = $this->medicamento_model->obt_info($codigo);
+					$data2 = $this->medicamento_model->obt_codigo_lote($codigo);
+
+					//$datos = array('medicamento' => $data);
+					$datos = array(
+						'lote'=> $data2,
+						'medicamento' => $data);				
+			
+					$this->load->view('Ventas/baja',$datos);
+				}else
+				{
+					redirect("/");
+				}
 			}			
 		}
 
@@ -38,9 +61,8 @@
 						}
 					}
 						$data = $this->medicamento_model->obt_info($_POST['codigo']);
-						$data2 = $this->medicamento_model->obt_info($_POST['codigo']);
+						$data2 = $this->medicamento_model->obt_codigo_lote($_POST['codigo']);
 
-						//$datos = array('medicamento' => $data);
 						$datos = array(
 							'lote'=> $data2,
 							'error' => TRUE,
@@ -58,7 +80,7 @@
 						if( $this->medicamento_model->obt_cantidad($_POST['codigo']) == 0 )
 						{
 							$data = $this->medicamento_model->obt_info($_POST['codigo']);
-							$data2 = $this->medicamento_model->obt_info($_POST['codigo']);
+							$data2 = $this->medicamento_model->obt_codigo_lote($_POST['codigo']);
 
 							//$datos = array('medicamento' => $data);
 							$datos = array(
@@ -100,6 +122,7 @@
 		{
 			if( $this->session->userdata('user_id') && $_POST )
 			{
+
 				$this->load->model("medicamento_agregar");
 								
 				if( $this->medicamento_agregar->existe_lote($_POST["lote"]) )
@@ -138,6 +161,13 @@
 																		'cantidad' => $_POST["cant"],
 																		'dosis' => $_POST["dosis"]
 							));
+						$result2 = $this->medicamento_agregar->existe( $_POST["nom"], $_POST["lab"], $_POST["pres"] );
+						foreach( $result2->result() as $fila )
+						{
+							echo "Si existe el principio ".$_POST["principios"][0];
+							$this->medicamento_agregar->insertar_compuestos( $fila->codigo, $_POST["principios"] );
+						}		
+
 					}
 					$query = $this->medicamento_agregar->existe( $_POST["nom"], $_POST["lab"], $_POST["pres"] );
 					foreach($query->result() as $fila)
@@ -149,8 +179,6 @@
 					$this->medicamento_agregar->agregar_lote($_POST["lote"],$_POST["cant"],$_POST["fecha_e"],$_POST["fecha_v"],$codigo);
 					redirect("/");
 				}
-
-
 			}else
 			{
 				redirect("/");
@@ -162,11 +190,14 @@
 			if( $this->session->userdata('user_id') && $_GET )
 			{
 				$this->load->model("medicamento_model");
+
 				$codigo = $this->encrypt->decode($_GET["id"]);
 				if( is_numeric($codigo) )
 				{
 					$query = $this->medicamento_model->obt_info($codigo);
-					$data = array('medicamento' => $query);
+					$query2 = $this->medicamento_model->obt_principios($codigo);
+					$data = array('medicamento' => $query,
+								   'principio' => $query2);
 
 					$this->load->view("Administrador/info",$data);
 				}else

@@ -82,21 +82,25 @@
 					
 					<!--INICIO DEL CUERPO-->
 					<div class="row">
-						<div class="large-6 medium-9 small-centered columns">
+						<div class="large-6 medium-6 small-centered columns">
 							<fieldset style="border-color:#12853A;" style="align:left">
-								<legend>Información</legend>
+								<legend><h4><b>Información</b></h4></legend>
 								<?php
 									foreach( $medicamento->result() as $fila )
 									{
-										echo "<label><b>Nombre:</b> ".$fila->nombre."</label>";
-										echo "<label><b>Laboratorio:</b> ".$fila->laboratorio."</label>";
-										echo "<label><b>Presentación:</b> ".$fila->presentacion."</label>";
+										echo "<b>Nombre:</b> ".$fila->nombre."<br>";
+										echo "<b>Laboratorio:</b> ".$fila->laboratorio."<br>";
+										echo "<b>Presentación:</b> ".$fila->presentacion."<br><br>";
+									}
+									echo "<h5><b>Principio(s) activo(s)</b></h5><br>";
+									$i = 1;
+									foreach($principio->result() as $fila2)
+									{
+										echo "<b>Principio #".$i .":</b><br>". $fila2->nombre . " <br><br><b>Miligramos: </b> <br>" . $fila2->cant_miligramos." mlgr.<br><br>";
+										$i++;
 									}
 								?>							
-								<p><strong>Principio(s) activo(s)</strong></p>
-								<label>Fósforo - 62,5 mg</label>
-								<label>Vitamina B1 - 1,5 mg</label>
-								<label>Sulfato de manganeso - 0,5 mg</label>
+								
 							</fieldset>
 						</div>
 					</div>
@@ -105,7 +109,7 @@
 					<br>
 					<!--FIN DEL CUERPO-->
 					<div class="row">
-						<div class="small-12 medium-12 large-12 columns">
+						<div class="small-12 medium-12 large-12 columns" align="center">
 							<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Volver</a>
 						</div>
 					</div>

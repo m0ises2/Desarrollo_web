@@ -32,9 +32,23 @@
 		</script>
 
 		<script type="text/javascript">
-			function agregar_compuesto(texto)
+		var cantidad = 1;
+		var limite = 5;
+			function agregar_compuesto()
 			{
-				 document.getElementById("principio").innerHTML += "<br>" + texto;
+				cantidad += 1;
+				if( cantidad <= limite )
+				{
+					var newdiv = document.createElement('div');
+					newdiv.innerHTML = "<label>Nombre</label>" + "<br><input type='text' name='principios[]'>";
+					newdiv.className="large-8 medium-6  small-6  columns";
+					document.getElementById('principio').appendChild(newdiv);
+
+					var newdiv2 = document.createElement('div');
+					newdiv2.className="large-4 medium-6 small-6 columns";
+					newdiv2.innerHTML = "<label>masa(mg)</label>" + "<br><input type='text' name='principios[]'>"
+					document.getElementById('principio').appendChild(newdiv2);
+				}
 			}
 		</script>
 	</head>
@@ -97,7 +111,7 @@
 											<div class = "row">
 												<div class = "large-6 medium-6 small-6 columns">
 													<label>Presentación:</label>
-													<input type="text" name="pres" pattern = "[aA-zZ]+" required />
+													<input type="text" name="pres" pattern = "^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$" required />
 												</div>
 											</div>
 											<div class="row">
@@ -122,18 +136,18 @@
 											<br>
 											<p><strong>Principio(s) activo(s):</strong></p>
 											<div id="principio" class="row">
-												<div class="large-8 medium-8  small-8  columns">
-													<label>nombre</label>
-													<input type="text" name="p1nom" required />
+												<div id ="n" class="large-8 medium-6 small-6  columns">
+													<label>Nombre</label>
+													<input type="text" name="principios[]" pattern = "^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$"/>
 												</div>
-												<div class="large-4 medium-4 small-4 columns">
-													<label>masa (mg)</label>
-													<input type="text" name="p1masa" required />
+												<div id="m" class="large-4 medium-6 small-6 columns">
+													<label>Masa (mg)</label>
+													<input type="text" name="principios[]" pattern = "^[0-9]+\.?[0-9]*$"/>
 												</div>
 											</div>
 											<div class = "row">
 												<div class="large-4 medium-4 small-4 columns" align: "left">
-													<input type="button" value="otro" onClick="agregar_compuesto('<a>sexo</a>')">										
+													<input type="button" value="otro" onClick="agregar_compuesto()">										
 												</div>
 											</div>
 											<br>

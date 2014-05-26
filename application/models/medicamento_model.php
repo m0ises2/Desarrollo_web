@@ -34,6 +34,11 @@ class Medicamento_model extends CI_Model
 		return $resul;
 	}
 
+	function obt_principios( $codigo )
+	{
+		return $this->db->query("SELECT nombre,cant_miligramos FROM principio WHERE codigo_med=".$codigo);
+	}
+
 	function obt_cantidad_dosis( $codigo )
 	{
 		$query = $this->db->query("SELECT dosis FROM medicamento WHERE codigo=".$codigo);

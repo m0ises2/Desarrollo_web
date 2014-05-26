@@ -39,5 +39,16 @@
 		{
 			$this->db->insert('medicamento', $datos); 
 		}
+
+		function insertar_compuestos( $codigo, $principios )
+		{
+
+			for ($i=0; $i < count($principios); $i += 2) { 
+				$this->db->insert('principio',array('codigo_med' => $codigo,
+													  'nombre' => $principios[$i],
+													  'cant_miligramos' => $principios[$i+1]
+														));
+			}
+		}
 	};
 ?>

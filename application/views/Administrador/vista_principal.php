@@ -59,10 +59,6 @@
 											<ul class="dropdown">
 												<li><a href="">Búsqueda avanzada</a></li>
 												<li><a href= "<?php echo site_url();?>medicamento/alta" >Nuevo medicamento</a></li>
-												<li><label>Para los seleccionados</label></li>
-												<li><a href="">Nuevo lote</a></li>
-												<li><a href="">Modificar</a></li>
-												<li><a href="">Dar de baja</a></li>
 												<li><a href="<?php echo site_url()?>traspaso">Traspaso</a></li>
 											</ul>											
 										</li>
@@ -124,19 +120,15 @@
 												<section class="top-bar-section">
 													<ul>
 														<li class="has-dropdown" style="background-color:white;">
-															<a href="" class="round button expand" style="color:white; background-color:#12853A;">
+															<a class="round button expand" style="color:white; background-color:#12853A;">
 																Hacer...
 															</a>
 															<ul class="dropdown">
-																<li>
-																	<a href="<?php echo site_url()."index.php/".$this->encrypt->encode(strval($fila->codigo)); ?>">
-																		Nuevo lote
-																	</a>
-																</li>
+																<li><a href="<?php echo site_url()."lotes/nuevo_lote/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">	Nuevo lote </a></li>
 																<li><a href="">Ver lotes</a></li>
 																<li><a href="<?php echo site_url()."medicamento/ver_infor/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Ver info</a></li>
 																<li><a href="">Modificar</a></li>
-																<li><a href="">Eliminar</a></li>
+																<li><a href="<?php echo site_url()."medicamento/mostrar/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Eliminar</a></li>
 															</ul>
 														</li>
 													</ul>
