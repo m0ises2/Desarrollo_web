@@ -54,7 +54,7 @@
 											?>
 											<label>Cantidad</label>
 											<?php
-												echo "<input type='text' name='cant1' pattern='[0-9]+'' value='1' required />";											
+												echo "<input type='text' name='cant1' pattern = '[1-9]+[0-9]*' value='1' required />";											
 											?>
 											
 											<label>Causa</label>

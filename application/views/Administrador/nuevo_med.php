@@ -164,11 +164,11 @@
 												</div>
 												<div class="large-4 medium-4 small-3 columns">
 													<label>Elaboración:</label>
-													<input type="text" id="datepicker1" name="fecha_e" required />
+													<input type="text" id="datepicker1" name="fecha_e" required placeholder='Mes/Dia/Año' readonly="readonly" />
 												</div>
 												<div class="large-4 medium-4 small-3 columns">
 													<label>Vencimiento:</label>
-													<input type="text" id="datepicker2" name="fecha_v" required />
+													<input type="text" id="datepicker2" name="fecha_v" required placeholder='Mes/Dia/Año' readonly="readonly" />
 												</div>
 											</div>
 											

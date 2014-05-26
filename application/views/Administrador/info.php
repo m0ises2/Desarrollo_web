@@ -88,17 +88,29 @@
 								<?php
 									foreach( $medicamento->result() as $fila )
 									{
-										echo "<b>Nombre:</b> ".$fila->nombre."<br>";
-										echo "<b>Laboratorio:</b> ".$fila->laboratorio."<br>";
-										echo "<b>Presentación:</b> ".$fila->presentacion."<br><br>";
+										echo "<b>Nombre:</b> <span style =' font-size: 15pt;' >".$fila->nombre."</span><br>";
+										echo "<b>Laboratorio:</b> <span style =' font-size: 15pt;'>".$fila->laboratorio."</span><br>";
+										echo "<b>Presentación:</b> <span style =' font-size: 15pt;'>".$fila->presentacion."</span><br><br>";
 									}
 									echo "<h5><b>Principio(s) activo(s)</b></h5><br>";
 									$i = 1;
+										echo "<table border='1' style='border:green 3px ridge;'>";
+											echo "<thead>";
+												echo "<tr>
+													<th width='500px'>Nombre</th>
+													<th width='250px'>Miligramos</th></tr>";
+											echo "</thead>";
+											echo "<tbody>";
 									foreach($principio->result() as $fila2)
 									{
-										echo "<b>Principio #".$i .":</b><br>". $fila2->nombre . " <br><br><b>Miligramos: </b> <br>" . $fila2->cant_miligramos." mlgr.<br><br>";
+											echo "<tr>";
+											echo "<td>".$fila2->nombre."</td>";
+											echo "<td>".$fila2->cant_miligramos."</td>";
+											echo "</tr>";
 										$i++;
 									}
+									echo "</tbody>";
+									echo "</table>";
 								?>							
 								
 							</fieldset>

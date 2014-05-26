@@ -14,7 +14,6 @@ class Inicio_sesion extends CI_Controller
 		}
 
 		$this->load->view("Ventas/inicio");
-
 		
 	}
 
@@ -28,26 +27,31 @@ class Inicio_sesion extends CI_Controller
 	function validar()
 	{
 		$this->load->model('usuario_model');
-		
-		$data = array
-		(
-			'nombre' => $_POST['username'],
-			'contrasena' => $_POST['password']
-		);
+		if( $_POST )
+		{	
+			$data = array
+			(
+				'nombre' => $_POST['username'],
+				'contrasena' => $_POST['password']
+			);
 
-		$this->data = $this->usuario_model->obtener_info($data);
+			$this->data = $this->usuario_model->obtener_info($data);
 
-		if ( $this->data->num_rows() > 0 )
-		{
-			$this->establecer_sesion();
-			unset($this->data);
-			redirect('/principal','refresh');
+			if ( $this->data->num_rows() > 0 )
+			{
+				$this->establecer_sesion();
+				unset($this->data);
+				redirect('/');
+			}else
+			{
+				$error = array(
+					'error' => TRUE
+				);
+				$this->load->view('Ventas/inicio',$error);
+			}
 		}else
 		{
-			$error = array(
-				'error' => TRUE
-			);
-			$this->load->view('Ventas/inicio',$error);
+			redirect('/');	
 		}
 	}
 

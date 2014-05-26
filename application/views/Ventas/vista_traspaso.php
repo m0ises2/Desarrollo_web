@@ -113,7 +113,7 @@
 						<div class="row">
 							<div div class="small-8 small-centered medium-6 large-4 columns" align="left">
 								<label>Cantidad a ceder para todos</label>
-								<input type="text" pattern= "[0-9]+" name="cant1" value="1" required />
+								<input type="text" pattern = "[1-9]+[0-9]*" name="cant1" value="1" required />
 											
 								<label>Unidad cedente</label>
 									<select name="uc1" required />
