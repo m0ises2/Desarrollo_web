@@ -3,7 +3,6 @@
 
 	class Principal extends CI_Controller
 	{
-
 		function index()
 		{
 			$this->load->model('usuario_model');
