@@ -7,8 +7,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo site_url(); ?>/assets/css/foundation.css"/>
-		<script src="js/modernizr.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/foundation.css"/>
+		<script src="<?php echo base_url(); ?>/assets/js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
 	</head>
@@ -24,13 +24,13 @@
 					
 					<div class="row">
 						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="<?php echo site_url(); ?>/assets/img/logo.png" width="50%" height="50%">
+							<img src="<?php echo base_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 						<div class="large-8 medium-8 small-8 columns" align="center">
 							<h2>Stock de productos</h2>
 						</div>
 						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="<?php echo site_url(); ?>/assets/img/logo.png" width="50%" height="50%">
+							<img src="<?php echo base_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 					</div>
 					<br>
@@ -57,7 +57,7 @@
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><a href="">Búsqueda avanzada</a></li>
+												<li><a href="<?php echo site_url();?>/busq_avanzada/buscar">Búsqueda avanzada</a></li>
 												<li><a href= "<?php echo site_url();?>medicamento/alta" >Nuevo medicamento</a></li>
 												<li><a href="<?php echo site_url()?>traspaso">Traspaso</a></li>
 											</ul>											
@@ -104,6 +104,7 @@
 								</thead>
 								<tbody>
 									<?php
+										echo (isset($query)?$query:"");
 										foreach ($medicamento->result() as $fila):
 									?>
 									<tr>
@@ -167,11 +168,11 @@
 		
 		
 		<?php #require("template/footer.php"); ?>
-		<script src="js/jquery.js"></script>
-		<script src="js/foundation.min.js"></script>
-		<script src="js/vendor/jquery.js"></script>
-		<script src="js/foundation/foundation.js"></script>
-		<script src="js/foundation/foundation.dropdown.js"></script>
+		<script src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>
+		<script src="<?php echo base_url(); ?>/assets/js/foundation.min.js"></script>
+		<script src="<?php echo base_url(); ?>/assets/js/vendor/jquery.js"></script>
+		<script src="<?php echo base_url(); ?>/assets/js/foundation/foundation.js"></script>
+		<script src="<?php echo base_url(); ?>/assets/js/foundation/foundation.dropdown.js"></script>
 		
 		<script>$(document).foundation(
 			{

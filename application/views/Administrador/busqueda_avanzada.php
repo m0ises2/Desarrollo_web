@@ -7,8 +7,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="css/foundation.css" />
-		<script src="js/modernizr.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/foundation.css" />
+		<script src="<?php echo base_url(); ?>/assets/js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
 	</head>
@@ -24,13 +24,13 @@
 					
 					<div class="row">
 						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo base_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 						<div class="large-8 medium-8 small-8 columns" align="center">
 							<h2>Búsqueda avanzada</h2>
 						</div>
 						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="img/logo.png" width="50%" height="50%">
+							<img src="<?php echo base_url(); ?>/assets/img/logo.png" width="50%" height="50%">
 						</div>
 					</div>
 					<br>
@@ -59,7 +59,7 @@
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><a href="">Búsqueda avanzada</a></li>
+												<li><a href="<?php echo site_url();?>/busq_avanzada/buscar">Búsqueda avanzada</a></li>
 												<li><a href="">Nuevo medicamento</a></li>
 												<li><label>Para los seleccionados</label></li>
 												<li><a href="">Nuevo lote</a></li>
@@ -85,6 +85,7 @@
 					<!--FIN DEL HEADER-->
 					
 					<!--INICIO DEL CUERPO-->
+					<?php echo form_open('busq_avanzada/item'); ?>
 					<div class="row">
 						<div class="large-8 medium-10 small-centered columns" align="center">
 							<fieldset style="border-color:#12853A;">
@@ -92,37 +93,37 @@
 								<div class="row">
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Nombre</label>
-										<input type="text" name="nom" required />
+										<input type="text" name="medicamento.nombre" pattern="[A-Za-z0-9 ]+" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Laboratorio</label>
-										<input type="text" name="lab" required />
+										<input type="text" name="laboratorio" pattern="[A-Za-z0-9 ]+" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Presentación</label>
-										<input type="text" name="pres" required />
+										<input type="text" name="presentacion" pattern="[A-Za-z0-9 ]+" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Precio</label>
-										<input type="text" name="precio" required />
+										<input type="text" name="precio" pattern="[0-9]+(.)?[0-9]*" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Cantidad</label>
-										<input type="text" name="cant" required />
+										<input type="text" name="medicamento.cantidad" pattern="[0-9]+" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Princ. activo</label>
-										<input type="text" name="princ" required />
+										<input type="text" name="principio.nombre" pattern="[A-Za-z0-9 ]+" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Fecha de elav.</label>
-										<input type="text" name="fecha_e" required />
+										<input type="text" name="principal.fecha_f" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Fecha de ven.</label>
-										<input type="text" name="fecha_v" required />
+										<input type="text" name="principal.fecha_v" />
 									</div>
 								</div>
 							</fieldset>
@@ -139,6 +140,7 @@
 					</div>
 					<br>
 					<br>
+					</form>
 					<!--FIN DEL CUERPO-->
 					
 					
