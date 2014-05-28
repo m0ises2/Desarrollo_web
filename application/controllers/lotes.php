@@ -14,7 +14,7 @@
 
 		function nuevo_lote()
 		{
-			if( $_GET && $this->session->userdata('user_id') )
+			if( $_GET and $this->session->userdata('user_id') )
 			{
 				$this->load->model("medicamento_model");
 				$query = $this->medicamento_model->obt_info($this->encrypt->decode($_GET["id"]));
@@ -43,5 +43,26 @@
 			}
 			redirect("/");
 		}
+		
+		
+		function ver_lotes()
+		{
+			if( $_GET and $this->session->userdata('user_id') )
+			{
+				$codigo = $this->encrypt->decode($_GET["id"]);
+				
+				$this->load->model("medicamento_model");
+				$query1 = $this->medicamento_model->obt_info($codigo);
+				$query2 = $this->db->query("SELECT * FROM principal WHERE codigo_med=$codigo ORDER BY num_lote;");
+				
+				$data = array('medicamento' => $query1, 'lotes' => $query2);
+				$this->load->view("Administrador/lotes", $data);
+			}
+			else
+			{
+				redirect("/");
+			}
+		}
+		
 	};
 ?>

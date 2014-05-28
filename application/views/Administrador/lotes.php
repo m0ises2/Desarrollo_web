@@ -7,8 +7,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="css/foundation.css" />
-		<script src="js/modernizr.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/foundation.css" />
+		<script src="<?php echo base_url(); ?>/assets/js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
 	</head>
@@ -86,7 +86,9 @@
 					<br>
 					<!--FIN DEL HEADER-->
 					
-					<p><strong>Ritalin - Novatis - comprimidos</strong></p>
+					<?php $fila = $medicamento->row(); ?>
+					
+					<p><strong><?php echo "$fila->nombre - $fila->laboratorio - $fila->presentacion"; ?></strong></p>
 					<br>
 					<!--INICIO DE LA TABLA-->
 					<div class="row">
@@ -94,36 +96,22 @@
 							<table>
 								<thead>
 									<tr>
-										<th>cod_lote</th>
+										<th>num_lote</th>
 										<th>Cantidad</th>
 										<th>Fecha_f</th>
 										<th>Fecha_v</th>
-										<th>Operaciones</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php foreach($lotes->result() as $fila): ?>
 									<tr>
-										<td>001</td>
-										<td>37</td>
-										<td>01-07-2009</td>
-										<td style="color:red;">01-02-2014</td>
-										<td><a href="" style="color:#12853A;">Dar de baja</a>/<a href="" style="color:#12853A;">Traspaso</a></td>
+										<td><?php echo $fila->num_lote; ?></td>
+										<td><?php echo $fila->cantidad; ?></td>
+										<td><?php echo $fila->fecha_f; ?></td>
+										<?php echo ($fila->fecha_v<date("d-m-Y") ? "<td>$fila->fecha_v</td>":"<td style='color:red;'><b>$fila->fecha_v</b></td>"); ?>
+										<!--td style="color:red;">01-02-2014</td-->
 									</tr>
-									<tr>
-										<td>002</td>
-										<td>3</td>
-										<td>01-12-2010</td>
-										<td>01-07-2015</td>
-										<td><a href="" style="color:#12853A;">Dar de baja</a>/<a href="" style="color:#12853A;">Traspaso</a></td>
-									</tr>
-									<tr>
-										<td>003</td>
-										<td>10</td>
-										<td>01-01-2011</td>
-										<td>01-08-2015</td>
-										<td><a href="" style="color:#12853A;">Dar de baja</a>/<a href="" style="color:#12853A;">Traspaso</a></td>
-									</tr>
-									
+									<?php endforeach; ?>
 								</tbody>
 							</table>
 						</div>
@@ -148,8 +136,8 @@
 		
 		
 		<?php #require("template/footer.php"); ?>
-		<script src="js/jquery.js"></script>
-		<script src="js/foundation.min.js"></script>
+		<script src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>
+		<script src="<?php echo base_url(); ?>/assets/js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
 		</script>

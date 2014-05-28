@@ -114,19 +114,7 @@
 										<td><?php echo $fila->stock_max; ?></td>
 										<?php echo ($fila->cantidad<$fila->stock_min ? "<td style='color:red;'><b>$fila->cantidad</b></td>\n" : "<td>$fila->cantidad</td>\n"); ?>
 										<td><?php echo $fila->precio; ?></td>
-										<?php
-										echo "<td>";													
-
-													if( isset($unidosis[$fila->codigo]) )
-													{
-														echo $unidosis[$fila->codigo];
-													}else
-													{
-														echo "<b>N/A</b>";
-													}
-
-											echo "</td>";
-										?>
+										<td><?php echo ( isset($unidosis[$fila->codigo]) ? $unidosis[$fila->codigo] : "<b>N/A</b>" ); ?></td>
 										<td>
 											<nav class="top-bar" style="background-color:white;" data-topbar>
 												<section class="top-bar-section">
@@ -137,7 +125,7 @@
 															</a>
 															<ul class="dropdown">
 																<li><a href="<?php echo site_url()."lotes/nuevo_lote/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">	Nuevo lote </a></li>
-																<li><a href="">Ver lotes</a></li>
+																<li><a href="<?php echo site_url()."lotes/ver_lotes/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Ver lotes</a></li>
 																<li><a href="<?php echo site_url()."medicamento/ver_infor/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Ver info</a></li>
 																<li><a href="<?php echo site_url()."modificar/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Modificar</a></li>
 																<li><a href="<?php echo site_url()."medicamento/mostrar/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Eliminar</a></li>
