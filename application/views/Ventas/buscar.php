@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
 		<link rel="stylesheet" href="css/foundation.css" />
-		<script src="js/modernizr.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
 	</head>
@@ -134,8 +134,8 @@
 		
 		
 		<?php #require("template/footer.php"); ?>
-		<script src="js/jquery.js"></script>
-		<script src="js/foundation.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
 		</script>

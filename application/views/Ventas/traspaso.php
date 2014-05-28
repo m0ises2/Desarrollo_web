@@ -7,8 +7,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo site_url().'/';?>assets/css/foundation.css" />
-		<script src="js/modernizr.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/foundation.css" />
+		<script src="<?php echo base_url(); ?>assets/js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
 	</head>
@@ -22,18 +22,26 @@
 				<div class="callout panel" style="border-color:#12853A">
 					<!--INICIO DEL HEADER-->
 					
+					<?php
+						$this->load->model('usuario_model');
+						if($this->usuario_model->obtener_privilegio( $this->session->userdata('user_id') ) == "administrador"):
+							$titulo = "Traspaso de medicamentos";
+							require("template/header.php");
+						else:
+					?>
 					<div class="row">
 						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
+							<img src="<?php echo base_url(); ?>assets/img/logo.png" width="50%" height="50%">
 						</div>
 						<div class="large-8 medium-8 small-8 columns" align="center">
 							<h2>Traspaso de medicamentos</h2>
 						</div>
 						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
+							<img src="<?php echo base_url(); ?>assets/img/logo.png" width="50%" height="50%">
 						</div>
 					</div>
 					<br>
+					<?php endif;?>
 					<!-- BARRA -->
 					<br>
 					<!--FIN DEL HEADER-->
@@ -104,8 +112,8 @@
 		
 		
 		<?php #require("template/footer.php"); ?>
-		<script src="js/jquery.js"></script>
-		<script src="js/foundation.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
 		</script>

@@ -7,8 +7,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo site_url();?>assets/css/foundation.css" />
-		<script src="js/modernizr.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/foundation.css" />
+		<script src="<?php echo base_url();?>assets/<?php echo base_url(); ?>assets/js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
 		
 	</head>
@@ -22,7 +22,7 @@
 					<h2>Bienvenido al sistema</h2>
 					<br>
 					<div class="row">
-						<img src="<?php echo site_url()?>assets/img/logo.png" width="15%" height="15%">
+						<img src="<?php echo base_url()?>assets/img/logo.png" width="15%" height="15%">
 					</div>
 					<br>
 					<div class="row">
@@ -53,8 +53,8 @@
 		</div>
 		
 		<?php #require("template/footer.php"); ?>
-		<script src="js/jquery.js"></script>
-		<script src="js/foundation.min.js"></script>
+		<script src="<?php echo base_url();?>assets/js/jquery.js"></script>
+		<script src="<?php echo base_url();?>assets/js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
 		</script>

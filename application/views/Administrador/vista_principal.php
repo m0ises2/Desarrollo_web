@@ -7,9 +7,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/foundation.css"/>
-		<script src="<?php echo base_url(); ?>/assets/js/modernizr.js"></script>
-		<?php #require("template/header.php"); ?>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/foundation.css"/>
+		<script src="<?php echo base_url(); ?>assets/js/modernizr.js"></script>
+		
 		
 	</head>
 
@@ -21,54 +21,17 @@
 				
 				<div class="callout panel" style="border-color:#12853A">
 					<!--INICIO DEL HEADER-->
+					<?php
+						$titulo = "Stock de productos";
+						require("template/header.php");
+					?>
+					<!--FIN DEL HEADER-->
 					
-					<div class="row">
-						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="<?php echo base_url(); ?>/assets/img/logo.png" width="50%" height="50%">
-						</div>
-						<div class="large-8 medium-8 small-8 columns" align="center">
-							<h2>Stock de productos</h2>
-						</div>
-						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="<?php echo base_url(); ?>/assets/img/logo.png" width="50%" height="50%">
-						</div>
-					</div>
-					<br>
+					<!--INICIO DE LA TABLA-->
+					
+					<?php $this->load->library('encrypt'); ?>
 					<div class="row">
 						<div class="large-12 medium-12 small-12 columns" align="center">
-							<nav class="top-bar" data-topbar>
-								<section class="top-bar-section">
-									<!-- Right Nav Section -->
-									<ul class="right">
-										<li class="has-form">
-											<div class="row collapse">
-												<div class="large-8 small-9 columns">
-													<input type="text" placeholder="Inserte su texto" style="height:31px;">
-												</div>
-												<div class="large-4 small-3 columns">
-													<a href="#" class="round alert button expand" style="color:white; background-color:#12853A;">Buscar</a>
-												</div>
-											</div>
-										</li>
-									</ul>
-									
-									<!-- Left Nav Section -->
-									<ul class="left" style="margin-left:15px">
-										<li class="has-dropdown">
-											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
-											<ul class="dropdown">
-												<li><a href="<?php echo site_url();?>busq_avanzada/buscar">Búsqueda avanzada</a></li>
-												<li><a href= "<?php echo site_url();?>medicamento/alta" >Nuevo medicamento</a></li>
-												<li><a href="<?php echo site_url()?>traspaso">Traspaso</a></li>
-											</ul>											
-										</li>
-									</ul>	
-								</section>
-							</nav>
-							
-							<br>
-							<br>
-							<br>
 							
 							<ul class="pagination" style="position:relative; left:10%;">
 								<li class="arrow unavailable"><a href="">&laquo;</a></li>
@@ -79,15 +42,8 @@
 								<li><a href="" style="color:#12853A;">5</a></li>
 								<li class="arrow unavailable"><a href="">&raquo;</a></li>
 							</ul>
-						</div>
-					</div>
-					<br>
-					<!--FIN DEL HEADER-->
-					
-					<!--INICIO DE LA TABLA-->
-					<?php $this->load->library('encrypt'); ?>
-					<div class="row">
-						<div class="large-12 medium-12 small-12 columns" align="center">
+							<br>
+							
 							<table>
 								<thead>
 									<tr>

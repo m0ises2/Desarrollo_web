@@ -7,12 +7,12 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Proyecto de Desarrollo Web</title>
-		<link rel="stylesheet" href="<?php echo site_url()?>assets/css/foundation.css" />
-		<link rel="stylesheet" href="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css" />
-		<link rel="stylesheet" href="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/development-bundle/themes/smoothness/jquery-ui.css" />
-		<script src="<?php echo site_url()?>assets/js/jquery/jquery-1.11.1.js"></script>
-		<script src="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
-		<script src="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/development-bundle/ui/jquery.ui.datepicker.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/css/foundation.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css" />
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/development-bundle/themes/smoothness/jquery-ui.css" />
+		<script src="<?php echo base_url()?>assets/js/jquery/jquery-1.11.1.js"></script>
+		<script src="<?php echo base_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script src="<?php echo base_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/development-bundle/ui/jquery.ui.datepicker.js"></script>
 
 		<script src="js/modernizr.js"></script>
 		<?php #require("template/header.php"); ?>
@@ -61,23 +61,10 @@
 				
 				<div class="callout panel" style="border-color:#12853A">
 					<!--INICIO DEL HEADER-->
-					
-					<div class="row">
-						<div class="large-2 medium-2 small-2 columns" align="left">
-							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
-						</div>
-						<div class="large-8 medium-8 small-8 columns" align="center">
-							<h2>Nuevo medicamento</h2>
-						</div>
-						<div class="large-2 medium-2 small-2 columns" align="right">
-							<img src="<?php echo site_url().'/';?>assets/img/logo.png" width="50%" height="50%">
-						</div>
-					</div>
-					<br>
-					<!-- BARRA -->
-					
-					<!-- FIN DE BARRA -->
-					<br>
+					<?php
+						$titulo = "Nuevo medicamento";
+						require("template/header.php");
+					?>
 					<!--FIN DEL HEADER-->
 					
 					<!--INICIO DEL CUERPO-->
@@ -147,7 +134,7 @@
 											</div>
 											<div class = "row">
 												<div class="large-4 medium-4 small-4 columns" align: "left">
-													<input type="button" value="otro" onClick="agregar_compuesto()">										
+													<input type="button" class="round tiny button" style="color:white; background-color:#12853A;" value="otro" onClick="agregar_compuesto()">										
 												</div>
 											</div>
 											<br>
