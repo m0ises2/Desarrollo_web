@@ -76,11 +76,7 @@
 							<br>
 							<br>
 							<br>
-							
-							<ul class="pagination" style="position:relative; left:10%;">
-								<li class="arrow unavailable"><a href="">&laquo;</a></li>
-								<li class="current"><a href="">1</a></li>
-							</ul>
+							<br>
 						</div>
 					</div>
 					<br>
@@ -120,12 +116,11 @@
 					
 					<!--INICIO DEL FOOTER-->
 					<br>
+					<br>
+					<br>
 					<div class="row">
 						<div class="large-12 columns">
-							<ul class="pagination" style="position:relative; left:10%;">
-								<li class="arrow unavailable"><a href="">&laquo;</a></li>
-								<li class="current"><a href="">1</a></li>
-							</ul>
+							<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Volver</a>
 						</div>
 					</div>
 					<!--FIN DEL FOOTER-->
