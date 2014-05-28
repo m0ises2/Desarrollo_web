@@ -42,7 +42,7 @@
 				if( $dato == "administrador" )
 				{
 					$this->load->database();
-					$query = $this->db->query("SELECT DISTINCT medicamento.* FROM principal, principio, medicamento WHERE ($condicion) AND principio.codigo_med=medicamento.codigo AND principal.codigo_lote=medicamento.codigo_lote ORDER BY medicamento.nombre;");
+					$query = $this->db->query("SELECT DISTINCT medicamento.* FROM principal, principio, medicamento WHERE ($condicion) AND principio.codigo_med=medicamento.codigo AND principal.codigo_med=medicamento.codigo ORDER BY medicamento.nombre;");
 					$data = array('medicamento' => $query);
 					$this->load->view("Administrador/vista_principal", $data);
 				}

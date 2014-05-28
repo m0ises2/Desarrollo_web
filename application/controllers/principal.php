@@ -14,7 +14,7 @@
 				if( strcmp($dato, "administrador") == 0 )
 				{
 					$this->load->database();
-					$query = $this->db->query("SELECT * FROM medicamento;");
+					$query = $this->db->query("SELECT DISTINCT medicamento.*, cantidad_dosis FROM medicamento, unidosis WHERE medicamento.codigo=unidosis.codigo_med;");
 					$data = array('medicamento' => $query);
 					$this->load->view("Administrador/vista_principal", $data);
 				}
