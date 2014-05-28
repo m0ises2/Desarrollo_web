@@ -32,10 +32,10 @@
 			{
 				if($valor != "")
 				{
-					$condicion .= str_replace($array1, $array2, $item) . " = '$valor' OR ";
+					$condicion .= str_replace($array1, $array2, $item) . " = '$valor' AND ";
 				}
 			}
-			$condicion = substr($condicion, 0, -4);
+			$condicion = substr($condicion, 0, -5);
 			
 			if ( $condicion != "" and $this->session->userdata('user_id') )
 			{
