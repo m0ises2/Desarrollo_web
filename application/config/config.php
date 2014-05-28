@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= "http://$_SERVER[SERVER_NAME]/Desarrollo_web/";
+$config['base_url']	= "http://$_SERVER[SERVER_NAME]/";
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ $config['base_url']	= "http://$_SERVER[SERVER_NAME]/Desarrollo_web/";
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php/';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -245,7 +245,7 @@ $config['encryption_key'] = '8x7eXEw0GsGRE23Ascvd20700696GMoi';
 |
 */
 $config['sess_cookie_name']		= 'ci_session';
-$config['sess_expiration']		= 7200;
+$config['sess_expiration']		= 300;
 $config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= FALSE;
 $config['sess_use_database']	= FALSE;

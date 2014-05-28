@@ -96,6 +96,7 @@
 					<br>
 					<div class="row">
 						<div class="large-12 columns">
+							<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Volver</a>
 							<input type="submit" class="round button" style="color:white; background-color:#12853A;" value="Buscar">
 						</div>
 					</div>

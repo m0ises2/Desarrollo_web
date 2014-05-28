@@ -39,6 +39,7 @@
 												<li><a href="<?php echo site_url();?>busq_avanzada/buscar">Búsqueda avanzada</a></li>
 												<li><a href= "<?php echo site_url();?>medicamento/alta" >Nuevo medicamento</a></li>
 												<li><a href="<?php echo site_url()?>traspaso">Traspaso</a></li>
+												<li><a href="<?php echo site_url()?>nuevo_usuario">Nuevo Usuario</a></li>
 											</ul>											
 										</li>
 									</ul>	
