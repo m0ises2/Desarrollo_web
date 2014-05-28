@@ -96,9 +96,9 @@
 										<th>Presentacion <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
 										<th>stock_min<br> </th>
 										<th>stock_max<br> </th>
-										<th>Cantidad <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th>Cantidad Disponible<a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
 										<th>Precio <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
-										<th>Dosis <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th>Dosis Disponible<a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
 										<th>Operaciones</th>
 									</tr>
 								</thead>
@@ -114,7 +114,19 @@
 										<td><?php echo $fila->stock_max; ?></td>
 										<?php echo ($fila->cantidad<$fila->stock_min ? "<td style='color:red;'><b>$fila->cantidad</b></td>\n" : "<td>$fila->cantidad</td>\n"); ?>
 										<td><?php echo $fila->precio; ?></td>
-										<td><?php echo $fila->cantidad_dosis; ?></td>
+										<?php
+										echo "<td>";													
+
+													if( isset($unidosis[$fila->codigo]) )
+													{
+														echo $unidosis[$fila->codigo];
+													}else
+													{
+														echo "<b>N/A</b>";
+													}
+
+											echo "</td>";
+										?>
 										<td>
 											<nav class="top-bar" style="background-color:white;" data-topbar>
 												<section class="top-bar-section">

@@ -9,8 +9,26 @@
 		<title>Proyecto de Desarrollo Web</title>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/foundation.css" />
 		<script src="<?php echo base_url(); ?>/assets/js/modernizr.js"></script>
+		<link rel="stylesheet" href="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css" />
+		<link rel="stylesheet" href="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/development-bundle/themes/smoothness/jquery-ui.css" />
+		<script src="<?php echo site_url()?>assets/js/jquery/jquery-1.11.1.js"></script>
+		<script src="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script src="<?php echo site_url()?>assets/js/jquery/jquery-ui-1.10.4.custom/development-bundle/ui/jquery.ui.datepicker.js"></script>
 		<?php #require("template/header.php"); ?>
-		
+		<script>
+			$(function () {
+			$("#datepicker1").datepicker({
+			onClose: function (selectedDate) {
+			$("#datepicker2").datepicker("option", "minDate", selectedDate);
+			}
+			});
+			$("#datepicker2").datepicker({
+			onClose: function (selectedDate) {
+			$("#datepicker1").datepicker("option", "maxDate", selectedDate);
+			}
+			});
+			});
+		</script>
 	</head>
 
 	<body>
@@ -93,15 +111,15 @@
 								<div class="row">
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Nombre</label>
-										<input type="text" name="medicamento.nombre" pattern="[A-Za-z0-9 ]+" />
+										<input type="text" name="medicamento.nombre" pattern="^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Laboratorio</label>
-										<input type="text" name="laboratorio" pattern="[A-Za-z0-9 ]+" />
+										<input type="text" name="laboratorio" pattern="^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Presentación</label>
-										<input type="text" name="presentacion" pattern="[A-Za-z0-9 ]+" />
+										<input type="text" name="presentacion" pattern="^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Precio</label>
@@ -115,15 +133,15 @@
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Princ. activo</label>
-										<input type="text" name="principio.nombre" pattern="[A-Za-z0-9 ]+" />
+										<input type="text" name="principio.nombre" pattern="^[aA-zZ]+\s?[aA-zZ]*$+\s?[aA-zZ]*$" />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Fecha de elav.</label>
-										<input type="text" name="principal.fecha_f" />
+										<input type="text" id="datepicker1" name="principal.fecha_f"readonly="readonly"  />
 									</div>
 									<div class="large-3 medium-3 small-6 columns">
 										<label>Fecha de ven.</label>
-										<input type="text" name="principal.fecha_v" />
+										<input type="text" id="datepicker2" name="principal.fecha_v" readonly="readonly" />
 									</div>
 								</div>
 							</fieldset>

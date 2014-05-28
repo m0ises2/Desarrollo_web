@@ -6,21 +6,29 @@
 		function index()
 		{
 			$this->load->model('usuario_model');
-
+			$this->load->model('medicamento_model');
 			if( $this->session->userdata('user_id') )
 			{
 				$dato = $this->usuario_model->obtener_privilegio( $this->session->userdata('user_id') );
 
 				if( strcmp($dato, "administrador") == 0 )
 				{
-					$this->load->database();
-					$query = $this->db->query("SELECT DISTINCT medicamento.*, cantidad_dosis FROM medicamento, unidosis WHERE medicamento.codigo=unidosis.codigo_med;");
-					$data = array('medicamento' => $query);
+					$data = $this->medicamento_model->obt_medicamentos();
+					$data2 = $this->medicamento_model->obt_unidosis();
+					
+					$uni = array();
+					
+					foreach( $data2->result() as $fila2 )
+					{
+						$uni[$fila2->codigo_med] = $fila2->cantidad_dosis;
+					}
+					$data = array('medicamento' => $data,
+									'unidosis' => $uni);
+
 					$this->load->view("Administrador/vista_principal", $data);
 				}
 				else
 				{
-					$this->load->model('medicamento_model');
 					$data = $this->medicamento_model->obt_medicamentos();
 					$data2 = $this->medicamento_model->obt_unidosis();
 					

@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= "http://$_SERVER[SERVER_NAME]/Desarrollo_web";
+$config['base_url']	= "http://$_SERVER[SERVER_NAME]/";
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ $config['base_url']	= "http://$_SERVER[SERVER_NAME]/Desarrollo_web";
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php/';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

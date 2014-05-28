@@ -75,6 +75,7 @@
 					if( $this->medicamento_model->obt_cantidad($_POST['codigo']) == 0 && !$this->medicamento_model->existe_unidosis($_POST["codigo"]))
 					{
 						$this->medicamento_model->borrar_definitivo($_POST["codigo"]);
+						redirect('/');
 					}else
 					{
 						if( $this->medicamento_model->obt_cantidad($_POST['codigo']) == 0 )
