@@ -1,5 +1,4 @@
 <?php
-///Controlador que carga la vista principal dependiendo de que tipo de usuario sea. Administrador o Vendedo común.
 
 	class busq_avanzada extends CI_Controller
 	{

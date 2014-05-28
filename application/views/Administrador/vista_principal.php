@@ -57,7 +57,7 @@
 										<li class="has-dropdown">
 											<a href="" class="round button expand" style="color:white; background-color:#12853A;">Opciones</a>
 											<ul class="dropdown">
-												<li><a href="<?php echo site_url();?>/busq_avanzada/buscar">Búsqueda avanzada</a></li>
+												<li><a href="<?php echo site_url();?>busq_avanzada/buscar">Búsqueda avanzada</a></li>
 												<li><a href= "<?php echo site_url();?>medicamento/alta" >Nuevo medicamento</a></li>
 												<li><a href="<?php echo site_url()?>traspaso">Traspaso</a></li>
 											</ul>											
@@ -104,7 +104,6 @@
 								</thead>
 								<tbody>
 									<?php
-										echo (isset($query)?$query:"");
 										foreach ($medicamento->result() as $fila):
 									?>
 									<tr>
@@ -128,7 +127,7 @@
 																<li><a href="<?php echo site_url()."lotes/nuevo_lote/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">	Nuevo lote </a></li>
 																<li><a href="">Ver lotes</a></li>
 																<li><a href="<?php echo site_url()."medicamento/ver_infor/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Ver info</a></li>
-																<li><a href="">Modificar</a></li>
+																<li><a href="<?php echo site_url()."modificar/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Modificar</a></li>
 																<li><a href="<?php echo site_url()."medicamento/mostrar/?id=".urlencode($this->encrypt->encode($fila->codigo));?>">Eliminar</a></li>
 															</ul>
 														</li>
