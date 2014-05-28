@@ -30,7 +30,7 @@
 			{
 				if($valor != "")
 				{
-					$condicion .= str_replace("_", ".", $item) . " = '$valor' OR ";
+					$condicion .= str_replace("_", ".", $item, 1) . " = '$valor' OR ";
 				}
 			}
 			$condicion = substr($condicion, 0, -4);
@@ -44,7 +44,15 @@
 					$this->load->database();
 					$query = $this->db->query("SELECT DISTINCT medicamento.* FROM principal, principio, medicamento WHERE ($condicion) AND principio.codigo_med=medicamento.codigo AND principal.codigo_med=medicamento.codigo ORDER BY medicamento.nombre;");
 					$data = array('medicamento' => $query);
-					$this->load->view("Administrador/vista_principal", $data);
+					
+					if($query->num_rows() != 0)
+					{
+						$this->load->view("Administrador/vista_principal", $data);
+					}
+					else
+					{
+						header("Location: " . site_url() . "busq_avanzada/buscar");
+					}
 				}
 				else
 				{
