@@ -45,6 +45,12 @@ class Medicamento_model extends CI_Model
 		return $query;
 	}
 
+	function obt_dosis( $codigo )
+	{
+		$query = $this->db->query("SELECT cantidad_dosis FROM unidosis WHERE codigo_med=".$codigo);
+		return $query;
+	}
+
 	function borrar( $codigo, $cant )
 	{
 		$query = $this->db->query("SELECT cantidad FROM medicamento WHERE codigo=".$codigo);

@@ -46,6 +46,9 @@
 										<div class="large-12 medium-12 small-12 columns" align="left">
 											<label>Laboratorio: <?php echo $fila->laboratorio;?></label>
 											<label>Presentación: <?php echo $fila->presentacion;?></label>
+											<label>Cantidad Disponible: <?php if($fila->cantidad < $fila->stock_min){echo "<span style=' color: red; font-size:16pt; font-weight:bold;'>".$fila->cantidad."</span>";}else{echo "<span style='font-size:16pt; font-weight:bold;'>".$fila->cantidad."</span>";}?></label>
+											<label>Dosis Disponible: <?php if($dosis->num_rows() == 0){echo "<span style='font-size:16pt; font-weight:bold;'> 0 </span>";}else{foreach($dosis->result() as $f){echo "<span style='font-size:16pt; font-weight:bold;'>".$f->cantidad_dosis."</span>";}}?></label>
+											<br>
 											<?php
 												if( isset($error) )
 												{

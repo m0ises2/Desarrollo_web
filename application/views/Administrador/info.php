@@ -90,7 +90,8 @@
 									{
 										echo "<b>Nombre:</b> <span style =' font-size: 15pt;' >".$fila->nombre."</span><br>";
 										echo "<b>Laboratorio:</b> <span style =' font-size: 15pt;'>".$fila->laboratorio."</span><br>";
-										echo "<b>Presentación:</b> <span style =' font-size: 15pt;'>".$fila->presentacion."</span><br><br>";
+										echo "<b>Presentación:</b> <span style =' font-size: 15pt;'>".$fila->presentacion."</span><br>";
+										echo "<b>Dosis por Presentación:</b> <span style =' font-size: 15pt;'>".$fila->dosis."</span><br><br>";
 									}
 									echo "<h5><b>Principio(s) activo(s)</b></h5><br>";
 									$i = 1;

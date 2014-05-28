@@ -16,9 +16,11 @@
 			{
 				$data = $this->medicamento_model->obt_info($_POST['codigo']);
 				$data2 = $this->medicamento_model->obt_codigo_lote($_POST['codigo']);
+				$data3 = $this->medicamento_model->obt_cantidad_dosis($codigo);
 
 				//$datos = array('medicamento' => $data);
 				$datos = array(
+					'dosis' => $data3,
 					'lote'=> $data2,
 					'medicamento' => $data);				
 			
@@ -30,9 +32,11 @@
 					$codigo = $this->encrypt->decode($_GET["id"]);;
 					$data = $this->medicamento_model->obt_info($codigo);
 					$data2 = $this->medicamento_model->obt_codigo_lote($codigo);
+					$data3 = $this->medicamento_model->obt_dosis($codigo);
 
 					//$datos = array('medicamento' => $data);
 					$datos = array(
+						'dosis' => $data3,
 						'lote'=> $data2,
 						'medicamento' => $data);				
 			
@@ -62,9 +66,11 @@
 					}
 						$data = $this->medicamento_model->obt_info($_POST['codigo']);
 						$data2 = $this->medicamento_model->obt_codigo_lote($_POST['codigo']);
+						$data3 = $this->medicamento_model->obt_dosis($_POST['codigo']);
 
 						$datos = array(
 							'lote'=> $data2,
+							'dosis' => $data3,
 							'error' => TRUE,
 							'medicamento' => $data);				
 						
@@ -78,14 +84,16 @@
 						redirect('/');
 					}else
 					{
-						if( $this->medicamento_model->obt_cantidad($_POST['codigo']) == 0 )
+						if( $this->medicamento_model->obt_cantidad($_POST['codigo']) == 0 || !$this->medicamento_model->comprobar_cantidad($_POST["codigo"], $_POST["cant1"]))
 						{
 							$data = $this->medicamento_model->obt_info($_POST['codigo']);
 							$data2 = $this->medicamento_model->obt_codigo_lote($_POST['codigo']);
+							$data3 = $this->medicamento_model->obt_dosis($_POST['codigo']);
 
 							//$datos = array('medicamento' => $data);
 							$datos = array(
 								'lote'=> $data2,
+								'dosis' => $data3,
 								'error' => TRUE,
 								'medicamento' => $data);				
 						
@@ -97,8 +105,7 @@
 								$this->medicamento_model->borrar($_POST["codigo"], $_POST["cant1"]);
 								redirect('/');
 							}
-						}
-						redirect('/');
+						}						
 					}
 					
 				}
