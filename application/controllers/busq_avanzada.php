@@ -25,12 +25,13 @@
 			$this->load->model('usuario_model');
 			
 			$condicion = "";
+			$uno = 1;
 			
 			foreach($_POST as $item => $valor)
 			{
 				if($valor != "")
 				{
-					$condicion .= str_replace("_", ".", $item, 1) . " = '$valor' OR ";
+					$condicion .= str_replace("_", ".", $item, $uno) . " = '$valor' OR ";
 				}
 			}
 			$condicion = substr($condicion, 0, -4);
