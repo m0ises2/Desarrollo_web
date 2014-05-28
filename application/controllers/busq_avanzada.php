@@ -44,7 +44,7 @@
 				if( $dato == "administrador" )
 				{
 					$this->load->database();
-					$query = $this->db->query("SELECT DISTINCT medicamento.* FROM principal, principio, medicamento WHERE ($condicion) AND principio.codigo_med=medicamento.codigo AND principal.codigo_med=medicamento.codigo ORDER BY medicamento.nombre;");
+					$query = $this->db->query("SELECT DISTINCT medicamento.*, cantidad_dosis FROM principal, principio, medicamento, unidosis WHERE ($condicion) AND principio.codigo_med=medicamento.codigo AND principal.codigo_med=medicamento.codigo AND medicamento.codigo=unidosis.codigo_med ORDER BY medicamento.nombre;");
 					$data = array('medicamento' => $query);
 					
 					if($query->num_rows() != 0)
