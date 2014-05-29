@@ -29,9 +29,9 @@
 					}else
 					{
 						$this->usuario_model->agregar_usuario($_POST["usuario"],$_POST["contrasena"], "ventas");
-						$data = array('name' => $_POST["usuario"]);
-						$this->load->view("Administrador/exito",$data);
-					}					
+					}
+					$data = array('name' => $_POST["usuario"]);
+					$this->load->view("Administrador/exito",$data);
 				}
 			}else
 			{
