@@ -132,12 +132,11 @@
 													}
 
 											echo "<td>
-														<div style='line-height:550%;'>
-															<input name = 'codigo' type='hidden' value=".$fila->codigo.">
-															<button style='background-color:#12853A' type='summit' class='button tiny' tittle='Eliminar'>
+														<input name = 'codigo' type='hidden' value=".$fila->codigo.">
+														<button style='background-color:#12853A' type='summit' class='button tiny' tittle='Eliminar'>
 																Eliminar
 															</button>
-														</div>
+														
 													</td>
 													<td>  </td>
 												</tr>";

@@ -16,7 +16,7 @@
 			{
 				$data = $this->medicamento_model->obt_info($_POST['codigo']);
 				$data2 = $this->medicamento_model->obt_codigo_lote($_POST['codigo']);
-				$data3 = $this->medicamento_model->obt_cantidad_dosis($codigo);
+				$data3 = $this->medicamento_model->obt_dosis($_POST['codigo']);
 
 				//$datos = array('medicamento' => $data);
 				$datos = array(
@@ -34,7 +34,6 @@
 					$data2 = $this->medicamento_model->obt_codigo_lote($codigo);
 					$data3 = $this->medicamento_model->obt_dosis($codigo);
 
-					//$datos = array('medicamento' => $data);
 					$datos = array(
 						'dosis' => $data3,
 						'lote'=> $data2,
