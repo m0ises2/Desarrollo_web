@@ -69,7 +69,7 @@
 									<?php
 										foreach ($medicamento->result() as $fila) {
 											echo "<form method='POST' action=";
-											echo site_url().'/index.php/traspaso/operar';
+											echo site_url().'traspaso/operar';
 											echo ">";
 											echo "<tr>
 													<td>". $fila->nombre ."</td>

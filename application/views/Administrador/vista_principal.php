@@ -47,14 +47,14 @@
 							<table>
 								<thead>
 									<tr>
-										<th>Nombre <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
-										<th>Laboratorio <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
-										<th>Presentacion <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th><a href="y" style="color:black;">Nombre </a></th>
+										<th><a href="y" style="color:black;">Laboratorio </a></th>
+										<th><a href="y" style="color:black;">Presentacion </a></th>
 										<th>stock_min<br> </th>
 										<th>stock_max<br> </th>
-										<th>Cantidad Disponible<a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
-										<th>Precio <a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
-										<th>Dosis Disponible<a href="y" style="color:#12853A;"></a> <a href="x" style="color:#12853A;"></a></th>
+										<th><a href="y" style="color:black;">Cantidad Disponible</a></th>
+										<th><a href="y" style="color:black;">Precio </a></th>
+										<th><a href="y" style="color:black;">Dosis Disponible</a></th>
 										<th>Operaciones</th>
 									</tr>
 								</thead>

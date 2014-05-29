@@ -3,9 +3,9 @@
 
 class Medicamento_model extends CI_Model
 {
-	function obt_medicamentos()
+	function obt_medicamentos($orden = 'nombre')
 	{
-		return ($this->db->query('SELECT * FROM medicamento ORDER BY nombre'));
+		return ($this->db->query("SELECT * FROM medicamento ORDER BY $orden ASC;"));
 	}
 
 	function obt_unidosis()

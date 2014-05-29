@@ -48,8 +48,9 @@
 			{
 				redirect('/inicio_sesion','refresh');
 			}
-		}	
-
+		}
+		
+		
 	};
 
 ?>

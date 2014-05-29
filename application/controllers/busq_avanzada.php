@@ -23,6 +23,7 @@
 		{
 			$this->load->helper('form');
 			$this->load->model('usuario_model');
+			$this->load->model('medicamento_model');
 			
 			$condicion = "";
 			$array1 = array("medicamento_", "principal_", "principio_");
@@ -44,10 +45,17 @@
 				if( $dato == "administrador" )
 				{
 					$this->load->database();
-					$query = $this->db->query("SELECT DISTINCT medicamento.*, cantidad_dosis FROM principal, principio, medicamento, unidosis WHERE ($condicion) AND principio.codigo_med=medicamento.codigo AND principal.codigo_med=medicamento.codigo AND medicamento.codigo=unidosis.codigo_med ORDER BY medicamento.nombre;");
-					$data = array('medicamento' => $query);
+					$query1 = $this->db->query("SELECT DISTINCT medicamento.* FROM principal, principio, medicamento WHERE ($condicion) AND principio.codigo_med=medicamento.codigo AND principal.codigo_med=medicamento.codigo ORDER BY medicamento.nombre;");
+					$query2 = $this->medicamento_model->obt_unidosis();
 					
-					if($query->num_rows() != 0)
+					foreach( $query2->result() as $fila2 )
+					{
+						$uni[$fila2->codigo_med] = $fila2->cantidad_dosis;
+					}
+					
+					$data = array('medicamento' => $query1, 'unidosis' => $uni);
+					
+					if($query1->num_rows() != 0)
 					{
 						$this->load->view("Administrador/vista_principal", $data);
 					}
