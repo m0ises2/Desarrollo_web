@@ -113,7 +113,7 @@
 								<li class="arrow unavailable"><a href="">&raquo;</a></li>
 							</ul>
 						</div>
-						<a href = "<?php echo site_url();?>inicio_sesion/cerrar_sesion" style="color:#12853A;">Cerrar Sesión</a>
+						<a href = "<?php echo site_url();?>inicio_sesion/cerrar_sesion" style="color:#12853A;">Cerrar Sesión (<?php echo " ".$this->session->userdata('user_name')." ";?>)</a>
 					</div>
 					<!--FIN DEL FOOTER-->
 				</div>

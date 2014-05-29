@@ -21,6 +21,7 @@ class Inicio_sesion extends CI_Controller
 	{
 		foreach ($this->data->result() as $fila) {
 				$this->session->set_userdata('user_id',$fila->id);
+				$this->session->set_userdata('user_name',$fila->nombre);
 			}
 	}
 
