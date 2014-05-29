@@ -13,10 +13,15 @@ class Usuario_model extends CI_Model
 	{
 		return ($this->db->query("SELECT privilegios FROM usuario WHERE id = ".$data)->row()->privilegios);
 	}
-	
-	function agregar_usuario()
+
+	function existe( $nombre )
 	{
-		
+		return $this->db->get_where('usuario',array('nombre'=>$nombre))->num_rows() > 0;
+	}
+	
+	function agregar_usuario( $user, $pass,$privi )
+	{
+		$this->db->insert('usuario',array('nombre' => $user, 'contrasena' => $pass, 'privilegios' => $privi));
 	}
 }
 

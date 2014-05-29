@@ -29,27 +29,13 @@
 					<br><br>
 						<div class="row">
 							<div class="large-12 medium-12 small-12 columns" align="center">
-								<form method="POST" action = "<?php echo site_url();?>agregar_usuario/agregar">
-									<div class="panel" style="width:300px" align="left">
-										<?php
-											if( isset($error) )
-											{
-												echo '<div data-alert class="alert-box warning radius" style="width:250px; margin: 0 auto 20px auto;">Usuario no disponible</div>';
-											}
-										?>	
-										<label>Usuario</label>
-										<input type="text" name="usuario" pattern="^[aA-zZ]*$+[0-9]*?[aA-zZ]*$" value='<?php if( isset($error) ){echo $user;}?>' required />
-										<label>Contraseña</label>
-										<input type="password" name="contrasena" required />
-										<label>¿Administrador?</label>
-										<input type="checkbox" name="privi"/>
-										<br>
-										<div align="center">
-											<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Cancelar</a>
-											<input type="submit" style="background-color:#12853A" class="round button" value="Registrar" />
+								
+										<h4><b>Usuario:<?php echo " ".$name." </h4>";?></b>
+										<br><h4><b>Registro Exitoso</b></h4>
+										<div align="center"><br><br><br><br>
+											<a href='<?php echo site_url()?>principal' style='color:#12853A;'>Volver</a>
 										</div>
-								</div>
-							</form>
+								
 						</div>
 					</div>	
 					<br><br><br>				
