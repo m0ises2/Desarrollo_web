@@ -14,6 +14,10 @@ class Usuario_model extends CI_Model
 		return ($this->db->query("SELECT privilegios FROM usuario WHERE id = ".$data)->row()->privilegios);
 	}
 	
+	function agregar_usuario()
+	{
+		
+	}
 }
 
 ?>
